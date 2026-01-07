@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .row {
@@ -16,4 +16,19 @@
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+}
+
+.col {
+  display: grid;
+  align-content: start;
+  gap: .5rem;
+}
+
+.container {
+  padding: 1.5rem 3rem;
+
+}
+
+.logo {
+  font-size: 1.5em;
 }

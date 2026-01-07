@@ -6,10 +6,10 @@ import styles from './Header.module.css'
 export default function Header() {
   
   return (
-    <header className={`${styles.header} row-btw`}>
+    <header className={`${styles.header} container row-btw`}>
       <div className="row">
-        <div className="logo">
-          <h1 className={styles.heading}>Who'sStore</h1>
+        <div className="logo-wrapper">
+          <h1 className="logo">Who'sStore</h1>
         </div>
         <nav>
           <ul className="nav-list row">
