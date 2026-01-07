@@ -1,0 +1,19 @@
+.footer {
+    align-items: start;
+    background-color: black;
+    color: white;
+    border-radius: 24px;
+}
+
+.firstCol {
+    display: grid;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 150px;
+}
+
+.navList {
+    display: grid;
+    font-size: 2rem;
+    line-height: 1.5;
+}
