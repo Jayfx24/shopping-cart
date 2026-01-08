@@ -1,0 +1,27 @@
+.card{
+    max-width: 350px;
+    /* border: 1px solid; */
+    padding: 1rem 1.5rem;
+    background-color: hsla(0, 0%, 50%,0.1);
+    border-radius: 16px;
+}
+
+.category{
+    letter-spacing: 1px;
+    margin-block-end: .5rem;
+}
+
+.title{
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.price{
+    font-size: 1.25rem;
+    font-weight: 100;
+}
+
+.content{
+    display: grid;
+    gap: .5rem;
+}
