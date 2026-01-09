@@ -1,0 +1,42 @@
+.hero {
+
+    background: linear-gradient(to top, hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.1)),
+        url('../../assets/images/Luxurious\ Boutique\ Interior.webp') center / cover no-repeat;
+    height: 80vh;
+    min-height: 650px;
+    border-radius: 32px;
+}
+
+
+.content {
+    /* width: 100%; */
+    height: 100%;
+    padding-block: 3rem;
+
+}
+
+.texts {
+    position: relative;
+    display: grid;
+    width: 70%;
+    height: 100%;
+    text-transform: uppercase;
+    color: white;
+
+}
+
+.title {
+    font-size: 4.5rem;
+    line-height: 1.25;
+    font-weight: 300;
+}
+
+.subTitle {
+    font-size: 1rem;
+    margin-top: auto;
+
+}
+
+.carousel {
+    width: 25%;
+}

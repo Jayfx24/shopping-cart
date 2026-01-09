@@ -1,5 +1,5 @@
-import { MdFacebook } from "react-icons/md";
-import { FaTwitter } from "react-icons/fa";
+// import { MdFacebook } from "react-icons/md";
+// import { FaTwitter } from "react-icons/fa";
 import { Link } from "react-router";
 import styles from "./Footer.module.css"
 
