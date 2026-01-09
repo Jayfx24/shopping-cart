@@ -5,7 +5,7 @@ import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import useSortProduct from "./hooks/useSortProduct.jsx";
 import ProductCard from "./components/ProductCard/ProductCard.jsx";
-import Home from "./pages/Home/Home.jsx";
+import homeProductSort from "./utils.js";
 
 
 function App() {
@@ -14,13 +14,13 @@ function App() {
 
   if (!products.men || !products.women || !products.others) return;
 
+  
   return (
-    <section>
+    <section className="wrapper">
       <Header />
       <main >
-        <Home />
-        <ProductCard {...products.men["mens-shirts"][0]} />
-        {/* <Outlet /> */}
+        <Outlet context={products} />
+
       </main>
       <Footer />
     </section>

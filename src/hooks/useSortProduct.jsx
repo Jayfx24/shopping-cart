@@ -8,7 +8,7 @@ export default function useSortProduct() {
     women: null,
     others: null,
   });
-
+ 
   // const url = "https://dummyjson.com/products?limit=0";
 
   useEffect(() => {
@@ -45,6 +45,9 @@ export default function useSortProduct() {
           women: { ...womenObj },
           others: { ...obj },
         });
+       
+
+
       } catch (err) {
         console.log(err);
       }

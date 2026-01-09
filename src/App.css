@@ -5,6 +5,12 @@
   /* text-align: center; */
 }
 
+
+.wrapper{
+  display: grid;
+  gap: 2rem;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -16,6 +22,12 @@
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+}
+
+.row-wrap{
+   display: flex;
+ flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .col {
