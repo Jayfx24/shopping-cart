@@ -1,12 +1,12 @@
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ category, price, title, images }) {
-  const cleanCategory = category?.split("-").join(" ");
+  const cleanCategory = category.split("-").join(" ");
 
   return (
     <article className={styles.card}>
       <div className="img-wrapper">
-        <img src={images?.[0]} alt={title + "image"} />
+        <img src={images[0]} alt={title + "image"} />
       </div>
       <div className={styles.content}>
         <span className={styles.category}>{cleanCategory.toUpperCase()}</span>

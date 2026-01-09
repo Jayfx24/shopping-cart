@@ -3,7 +3,11 @@ import fetchAllProducts from "../services/api";
 import data from "../test.json";
 
 export default function useSortProduct() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState({
+    men: null,
+    women: null,
+    others: null,
+  });
 
   // const url = "https://dummyjson.com/products?limit=0";
 
@@ -52,4 +56,3 @@ export default function useSortProduct() {
     products,
   };
 }
-
