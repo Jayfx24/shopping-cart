@@ -3,19 +3,17 @@ import { useOutletContext } from "react-router";
 import styles from "./Home.module.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import homeProductSort from "../../utils";
+import Button from "../../components/ui/Button";
 
 export default function Home() {
   const products = useOutletContext()
-
-  console.log(products)
-  if (!products.men) return 
   const sorted = homeProductSort(products)
   const [category, setCategory] = useState("wears");
   const [data, setData] = useState(sorted[category])
 
   const handleClick = (type) => {
     setCategory(type);
-    setData(type)
+    setData(sorted[type])
   };
 
   return (
@@ -33,42 +31,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="show-case">
-        <nav className="showcase">
-          <ul className="row">
+      <section className={styles.showcase}>
+        <nav className="">
+          <ul className={styles.nav}>
             <li>
-              <button className="" onClick={() => handleClick()}>
+              <Button className="" onClick={() => handleClick()}>
                 New
-              </button>
+              </Button>
             </li>
             <li>
-              <button className="" onClick={() => handleClick("wears")}>
+              <Button className="" onClick={() => handleClick("wears")}>
                 Ready to Wear
-              </button>
+              </Button>
             </li>
             <li>
-              <button className="" onClick={() => handleClick("men")}>
+              <Button className="" onClick={() => handleClick("men")}>
                 Men's Essential
-              </button>
+              </Button>
             </li>
             <li>
-              <button className="" onClick={() => handleClick("women")}>
+              <Button className="" onClick={() => handleClick("women")}>
                 Women's Essentials
-              </button>
+              </Button>
             </li>
             <li>
-              <button className="" onClick={() => handleClick("home")}>
+              <Button className="" onClick={() => handleClick("home")}>
                 Home Essentials
-              </button>
+              </Button>
             </li>
           </ul>
         </nav>
-        <div className="showcase-content">
-          <h2 className="s-title">NEW ARRIVALS</h2>
-          <p className="s-sub-title">
-            VIEW OUR WHOLE FASHION ASSORTMENT. WE OFFER EVERYTHING FROM CLOTHING
-            TO ACCESSORIES.
-          </p>
+        <div className={styles.scContent}>
+          <div className={styles.scText}>
+            <h2 className={styles.scTitle}>NEW ARRIVALS</h2>
+            <p className={styles.scSubtitle}>
+              VIEW OUR WHOLE FASHION ASSORTMENT. WE OFFER EVERYTHING FROM CLOTHING
+              TO ACCESSORIES.
+            </p>
+          </div>
 
           <div className="s__products">
             <ul className="row-wrap">

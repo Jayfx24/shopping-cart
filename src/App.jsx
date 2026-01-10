@@ -9,7 +9,7 @@ import homeProductSort from "./utils.js";
 
 
 function App() {
-  const [count, setCount] = useState(0);
+
   const { products } = useSortProduct();
 
   if (!products.men || !products.women || !products.others) return;
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <main >
         <Outlet context={products} />
-
+ 
       </main>
       <Footer />
     </section>

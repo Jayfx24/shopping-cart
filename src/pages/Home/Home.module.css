@@ -40,3 +40,34 @@
 .carousel {
     width: 25%;
 }
+
+.showcase{
+    /* display: grid;
+    gap: 0.5em; */
+    text-align: center;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+   
+}
+
+.scContent{
+}
+
+.scText{
+    padding-block: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.scTitle{
+    font-size: 2.5em;
+    /* margin-block-end: .5em; */
+}
+.scSubtitle{
+    display: inline-block;
+    max-width: 32em;
+}
