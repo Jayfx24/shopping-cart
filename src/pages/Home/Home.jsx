@@ -1,20 +1,25 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
 import styles from "./Home.module.css";
+import ProductList from "../../components/ProductList/ProductList";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import homeProductSort from "../../utils";
 import Button from "../../components/ui/Button";
 
 export default function Home() {
-  const products = useOutletContext()
-  const sorted = homeProductSort(products)
+  const products = useOutletContext();
+  const sorted = homeProductSort(products);
   const [category, setCategory] = useState("wears");
-  const [data, setData] = useState(sorted[category])
+  const [data, setData] = useState(sorted[category]);
 
   const handleClick = (type) => {
     setCategory(type);
-    setData(sorted[type])
+    setData(sorted[type]);
   };
+
+  const currentList = Object.values(data.products)
+    .splice(0, 6)
+    ?.map((item) => <ProductCard {...item} />);
 
   return (
     <>
@@ -65,18 +70,15 @@ export default function Home() {
           <div className={styles.scText}>
             <h2 className={styles.scTitle}>NEW ARRIVALS</h2>
             <p className={styles.scSubtitle}>
-              VIEW OUR WHOLE FASHION ASSORTMENT. WE OFFER EVERYTHING FROM CLOTHING
-              TO ACCESSORIES.
+              VIEW OUR WHOLE FASHION ASSORTMENT. WE OFFER EVERYTHING FROM
+              CLOTHING TO ACCESSORIES.
             </p>
           </div>
 
           <div className="s__products">
-            <ul className="row-wrap">
-              {Object.values(data.products).splice(0,6)?.map((item) => (
-                console.log(item),
-                <ProductCard {...item} />
-              ))}
-            </ul>
+            <ProductList>
+              {currentList}
+            </ProductList>
           </div>
         </div>
       </section>
