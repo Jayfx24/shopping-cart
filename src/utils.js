@@ -14,17 +14,17 @@ export default function homeProductSort(data) {
 
   return {
     beauty: { text: { title: "", subtitle: "" }, products: [] },
-    wears: { text: { title: "", subtitle: "" }, products: shuffle(wears) },
+    wears: { text: { title: "Everyday Wears, Elevated", subtitle: "Everyday apparel built to keep up with your lifestyle while maintaining a clean, confident, and polished look" }, products: shuffle(wears) },
     men: {
-      text: { title: "", subtitle: "" },
+      text: { title: "Men's Essential", subtitle: "Reliable men’s essentials designed to fit seamlessly into your daily routine while keeping your style clean and confident." },
       products: shuffle(menEssentials),
     },
     women: {
-      text: { title: "", subtitle: "" },
+      text: { title: "Women's Essential", subtitle: "Effortless fashion staples created to support confidence, movement, and personal expression throughout your day." },
       products: shuffle(womenEssentials),
     },
     home: {
-      text: { title: "", subtitle: "" },
+      text: { title: "Home Essentials", subtitle: "Carefully selected home pieces that help create a calm, organized, and comfortable living environment" },
       products: shuffle(homeEssentials),
     },
   };
