@@ -40,9 +40,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.showcase}>
+      <section className={styles.showcase + " " + "container"}>
         <nav className="">
-          <ul className={styles.nav}>
+          <ul className={styles.nav + " " + 'row'}>
             <li>
               <Button
                 className={category === "x" ? "active-cat" : ""}
@@ -97,7 +97,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.twoCol}>
+      <section className={styles.twoCol + " " + "container"}>
         <img
           src={urbanCImg}
           alt="Urban Contemplation"
@@ -119,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="info">
+      <section className="info container">
         <div className={`row-btw ${styles.infoText}`}>
           <h2>ADJUST TO YOUR EVERYDAY CLOTHING NEEDS!</h2>
 

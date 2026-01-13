@@ -1,10 +1,10 @@
 .header{
     background-color: hsla(0, 0%, 50%,0.15);
-    border-radius: 2rem;
+    border-radius: var(--br-xl);
 }
 
 .heading{
-    font-size: 1.5em;
+    font-size: var(--f-1_5);
 }
 
 
@@ -14,8 +14,12 @@
     text-transform: uppercase;
   
 }
-.navIcon{
+.navIcons{
    
+}
+
+.navList{
+
 }
 
 .navIconLink{
@@ -24,4 +28,14 @@
     border-radius: 50%;
     display: grid;
     align-items: center;
+}
+
+
+@media (max-width:768px) {
+    .navIcons{
+   display: none;
+}
+    .navList{
+        flex-direction: row;
+    }
 }

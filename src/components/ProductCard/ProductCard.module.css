@@ -8,17 +8,18 @@
 }
 
 .category{
+    font-size: 15px;
     letter-spacing: 1px;
-    margin-block-end: .5rem;
+    
 }
 
 .title{
-    font-size: 1.5rem;
+    font-size: var(--f-1_5);
     line-height: 1;
 }
 
 .price{
-    font-size: 1.25rem;
+    font-size: 1.125em;
     font-weight: 100;
 }
 
