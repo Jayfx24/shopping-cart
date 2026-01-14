@@ -16,7 +16,7 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav__item">
-              <Link to="/" className={`${styles.navLink}`}>
+              <Link to="products" className={`${styles.navLink}`}>
                 Products
               </Link>
             </li>

@@ -1,13 +1,18 @@
 import App from "./App";
 import Home from "./pages/Home/Home";
-import homeProductSort from "./utils";
-
+import Shop from "./pages/Shop/Shop";
 
 const routes = [
   {
     path: "/",
     element: <App />,
-    children: [{ index: true, element: <Home /> }],
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "products",
+        element: <Shop />,
+      },
+    ],
   },
 ];
 
