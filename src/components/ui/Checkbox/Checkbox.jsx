@@ -1,4 +1,5 @@
 export default function Checkbox({ id, label, onChange, isChecked }) {
+
   return (
     <label htmlFor={label}>
       <input
