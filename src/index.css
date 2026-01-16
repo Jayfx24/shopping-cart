@@ -49,3 +49,7 @@ a {
   cursor: pointer;
   font: inherit;
 }
+
+fieldset{
+  border: none;
+}

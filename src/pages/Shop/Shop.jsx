@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
-
+import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
+import styles from "./Shop.module.css";
 
 export default function Shop() {
   const products = useOutletContext();
@@ -67,9 +68,10 @@ export default function Shop() {
   }
 
   return (
-    <section className="products">
-      <aside>
+    <section className="container" >
+      <aside className={`${styles.aside} `}>
         <div className="categories">
+          <h2>Category</h2>
           {Object.entries(products).map(([category, values]) => {
             return (
               <fieldset key={`all-${category}`}>
@@ -81,7 +83,7 @@ export default function Shop() {
                   />
                 </legend>
 
-                <div className="filter__sub">
+                <div className={styles.filterSub}>
                   {Object.entries(values).map(([subCategory, _]) => {
                     const isSelected = checkedStatus[subCategory] ?? false;
                     return (
@@ -98,6 +100,56 @@ export default function Shop() {
               </fieldset>
             );
           })}
+        </div>
+        <div className="price-filter">
+          <h2>Price</h2>
+
+          <input
+            type="range"
+            name="price-range"
+            id="price-range"
+            min={0}
+            max={100}
+            value={0}
+          />
+        </div>
+
+        <div className="price-input">
+          <label htmlFor="price-from">
+            $
+            <input type="number" name="price-from" id="price-from" />
+          </label>
+          <span> To </span>
+          <label htmlFor="price-to">
+            $
+            <input type="number" name="price-to" id="price-to" />
+          </label>
+        </div>
+
+        <div className="s">
+          <h2>Shipping & Delivery</h2>
+
+          <div className="s-i">
+            <Van />
+            <div className="s-t">
+              <p className="s-title"> Free Shipping </p>
+              <p className="s-sub">Free Shipping WorldWide for Our clients</p>
+            </div>
+          </div>
+          <div className="s-i">
+            <Headset />
+            <div className="s-t">
+              <p className="s-title"> Support 24/7 </p>
+              <p className="s-sub">Round the clock support</p>
+            </div>
+          </div>
+          <div className="s-i">
+            <RefreshCw />
+            <div className="s-t">
+              <p className="s-title"> 30 days Return </p>
+              <p className="s-sub"> Easy 30 days return for Our clients</p>
+            </div>
+          </div>
         </div>
       </aside>
 

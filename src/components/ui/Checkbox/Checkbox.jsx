@@ -1,14 +1,11 @@
-export default function Checkbox({ id, label, onChange, isChecked }) {
+import styles from './Checkbox.module.css'
 
+
+export default function Checkbox({ id, label, onChange, isChecked }) {
   return (
-    <label htmlFor={label}>
-      <input
-        type="checkbox"
-        id={id}
-        onChange={onChange}
-        checked={isChecked}
-      />{" "}
-      {label}{" "}
-    </label>
+    <div className={styles.checkBox}>
+      <input type="checkbox" id={id} onChange={onChange} checked={isChecked} />
+      <label htmlFor={label}>{label}</label>
+    </div>
   );
 }
