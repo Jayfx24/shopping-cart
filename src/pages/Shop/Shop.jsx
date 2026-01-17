@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router";
+import { useLoaderData, useOutletContext } from "react-router";
 import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
 import ProductList from "../../components/ProductList/ProductList";
@@ -7,7 +7,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import styles from "./Shop.module.css";
 
 export default function Shop() {
-  const { products, unsortedProducts } = useOutletContext();
+  const { sortedProducts, unsortedProducts } = useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
   const allSelectedItems = Object.values(selectedCategory).flat();
@@ -15,14 +15,14 @@ export default function Shop() {
   const productsToRender =
     Object.keys(selectedCategory).length > 1
       ? allSelectedItems
-      : unsortedProducts.products;
+      : unsortedProducts.products
 
   function handleChange(e, category, subCategory = null) {
     const target = e.target;
 
     //  if category is unchecked remove  its children from selectedCategory
     if (!subCategory && !target.checked) {
-      const categoryItems = Object.keys(products[category]);
+      const categoryItems = Object.keys(sortedProducts[category]);
       const newSelected = Object.fromEntries(
         Object.entries(selectedCategory).filter(
           ([key]) => !categoryItems.includes(key)
@@ -31,7 +31,7 @@ export default function Shop() {
 
       // uncheck subs
       const categorySubs = Object.fromEntries(
-        Object.keys(products[category]).map((i) => [i, false])
+        Object.keys(sortedProducts[category]).map((i) => [i, false])
       );
 
       setSelectedCategory(newSelected);
@@ -42,13 +42,13 @@ export default function Shop() {
     // add category children
     if (!subCategory) {
       const categorySubs = Object.fromEntries(
-        Object.keys(products[category]).map((i) => [i, true])
+        Object.keys(sortedProducts[category]).map((i) => [i, true])
       );
 
       setCheckedStatus((prev) => ({ ...prev, ...categorySubs }));
       setSelectedCategory((prev) => ({
         ...prev,
-        ...{ ...products[category] },
+        ...{ ...sortedProducts[category] },
       }));
 
       return;
@@ -59,7 +59,7 @@ export default function Shop() {
     if (target.checked) {
       newSelected = {
         ...selectedCategory,
-        [subCategory]: products[category][subCategory],
+        [subCategory]: sortedProducts[category][subCategory],
       };
 
       setCheckedStatus((prev) => ({ ...prev, [subCategory]: true }));
@@ -78,7 +78,7 @@ export default function Shop() {
       <aside className={`${styles.aside} `}>
         <div className="categories">
           <h2>Category</h2>
-          {Object.entries(products).map(([category, values]) => {
+          {Object.entries(sortedProducts).map(([category, values]) => {
             return (
               <fieldset key={`all-${category}`}>
                 <legend>

@@ -1,26 +1,17 @@
 import { useState } from "react";
 import "./App.css";
-import { Outlet } from "react-router";
+import { Outlet, useLoaderData } from "react-router";
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import useSortProduct from "./hooks/useSortProduct.jsx";
-import ProductCard from "./components/ProductCard/ProductCard.jsx";
-import homeProductSort from "./utils.js";
-
 
 function App() {
+  const { sortedProducts, unsortedProducts } = useLoaderData();
 
-  const { products, unsortedProducts } = useSortProduct();
-
-  if (!products.men || !products.women || !products.others) return;
-
-  
   return (
     <section className="wrapper">
       <Header />
-      <main >
-        <Outlet context={{products,unsortedProducts}} />
- 
+      <main>
+        <Outlet context={{ sortedProducts, unsortedProducts }} />
       </main>
       <Footer />
     </section>

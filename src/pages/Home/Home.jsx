@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router";
+import { useOutletContext,useLoaderData } from "react-router";
 import styles from "./Home.module.css";
 import ProductList from "../../components/ProductList/ProductList";
 import ProductCard from "../../components/ProductCard/ProductCard";
@@ -11,8 +11,8 @@ import urbanYImg from "../../assets/images/Stylish Person in Yellow Coat.webp";
 import urbanPImg from "../../assets/images/Urban Portrait with Vibrant Lights.webp";
 
 export default function Home() {
-  const { products } = useOutletContext();
-  const sorted = homeProductSort(products);
+  const { sortedProducts } = useOutletContext();
+  const sorted = homeProductSort(sortedProducts);
   const [category, setCategory] = useState("wears");
   const [data, setData] = useState(sorted[category]);
 
