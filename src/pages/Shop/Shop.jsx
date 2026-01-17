@@ -2,20 +2,24 @@ import { useState } from "react";
 import { useOutletContext } from "react-router";
 import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
+import ProductList from "../../components/ProductList/ProductList";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import styles from "./Shop.module.css";
 
 export default function Shop() {
-  const products = useOutletContext();
-  const [currentCategory, setCurrentCategory] = useState([]);
+  const { products, unsortedProducts } = useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
+  const allSelectedItems = Object.values(selectedCategory).flat();
 
-  // if unchecked remove from selected Category
-  // if main category is selected all child should be selected if one is then selected all should be unselected
+  const productsToRender =
+    Object.keys(selectedCategory).length > 1
+      ? allSelectedItems
+      : unsortedProducts.products;
 
   function handleChange(e, category, subCategory = null) {
     const target = e.target;
-    console.log(checkedStatus);
+
     //  if category is unchecked remove  its children from selectedCategory
     if (!subCategory && !target.checked) {
       const categoryItems = Object.keys(products[category]);
@@ -46,9 +50,11 @@ export default function Shop() {
         ...prev,
         ...{ ...products[category] },
       }));
+
       return;
     }
 
+    // Toggle sub category
     let newSelected;
     if (target.checked) {
       newSelected = {
@@ -68,7 +74,7 @@ export default function Shop() {
   }
 
   return (
-    <section className="container" >
+    <section className={`${styles.shop} container`}>
       <aside className={`${styles.aside} `}>
         <div className="categories">
           <h2>Category</h2>
@@ -154,9 +160,11 @@ export default function Shop() {
       </aside>
 
       <div className="list">
-        {/* <h1>{currentCategory}</h1>
-        <code>{currentCategory}</code> */}
-        {console.log(selectedCategory)}
+        {/* <ProductList>
+          {productsToRender.map((item) => (
+            <ProductCard {...item} />
+          ))}
+        </ProductList> */}
       </div>
     </section>
   );

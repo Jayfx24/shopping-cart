@@ -1,3 +1,7 @@
+.shop{
+    display: flex;
+}
+
 .aside{
     width: 300px;
     border: 1px solid;

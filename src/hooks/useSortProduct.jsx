@@ -8,6 +8,8 @@ export default function useSortProduct() {
     women: null,
     others: null,
   });
+
+   const [unsortedProducts, setUnsortedProducts] = useState({});
  
   // const url = "https://dummyjson.com/products?limit=0";
 
@@ -45,6 +47,7 @@ export default function useSortProduct() {
           women: { ...womenObj },
           others: { ...obj },
         });
+        setUnsortedProducts(data)
        
 
 
@@ -57,5 +60,6 @@ export default function useSortProduct() {
 
   return {
     products,
+    unsortedProducts,
   };
 }

@@ -11,7 +11,7 @@ import urbanYImg from "../../assets/images/Stylish Person in Yellow Coat.webp";
 import urbanPImg from "../../assets/images/Urban Portrait with Vibrant Lights.webp";
 
 export default function Home() {
-  const products = useOutletContext();
+  const { products } = useOutletContext();
   const sorted = homeProductSort(products);
   const [category, setCategory] = useState("wears");
   const [data, setData] = useState(sorted[category]);
@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className={styles.showcase + " " + "container"}>
         <nav className="">
-          <ul className={styles.nav + " " + 'row'}>
+          <ul className={styles.nav + " " + "row"}>
             <li>
               <Button
                 className={category === "x" ? "active-cat" : ""}
