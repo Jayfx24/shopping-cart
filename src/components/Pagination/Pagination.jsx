@@ -4,12 +4,11 @@ import ProductCard from "../ProductCard/ProductCard";
 import ProductList from "../ProductList/ProductList";
 
 export default function Pagination({ products }) {
- 
   const [currentPage, setCurrentPage] = useState(1);
   const dataLimit = 12;
   const paginatedItems = products.slice(
     (currentPage - 1) * dataLimit,
-    currentPage * dataLimit
+    currentPage * dataLimit,
   );
 
   const currentRender = products.length > dataLimit ? paginatedItems : products;
@@ -33,8 +32,10 @@ export default function Pagination({ products }) {
 
       {btnStatus && (
         <div className="">
-          <button onClick={handlePrevious}>Left</button>
-          <button onClick={handleNext}>Right</button>
+          {currentPage > 1 && <button onClick={handlePrevious}>Left</button>}
+          {currentPage < (products.length / dataLimit) && (
+            <button onClick={handleNext}>Right</button>
+          )}
         </div>
       )}
     </div>

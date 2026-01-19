@@ -7,13 +7,12 @@ const routes = [
   {
     path: "/",
     element: <App />,
-    loader: productsLoader ,
+    loader: productsLoader,
     children: [
       { index: true, element: <Home /> },
       {
         path: "products",
         element: <Shop />,
-      
       },
     ],
   },

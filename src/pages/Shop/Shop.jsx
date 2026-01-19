@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useLoaderData, useOutletContext } from "react-router";
+import { useOutletContext } from "react-router";
 import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
 import ProductList from "../../components/ProductList/ProductList";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import Pagination from "../../components/Pagination/Pagination";
 import styles from "./Shop.module.css";
 
 export default function Shop() {
@@ -15,7 +16,7 @@ export default function Shop() {
   const productsToRender =
     Object.keys(selectedCategory).length > 1
       ? allSelectedItems
-      : unsortedProducts.products
+      : unsortedProducts;
 
   function handleChange(e, category, subCategory = null) {
     const target = e.target;
@@ -71,6 +72,7 @@ export default function Shop() {
     }
 
     setSelectedCategory(newSelected);
+    console.log(selectedCategory);
   }
 
   return (
@@ -159,13 +161,7 @@ export default function Shop() {
         </div>
       </aside>
 
-      <div className="list">
-        {/* <ProductList>
-          {productsToRender.map((item) => (
-            <ProductCard {...item} />
-          ))}
-        </ProductList> */}
-      </div>
+      <div className="list">{<Pagination products={productsToRender} />}</div>
     </section>
   );
 }
