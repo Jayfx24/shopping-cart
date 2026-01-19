@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router";
+import { useOutletContext, Outlet } from "react-router";
 import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
-import ProductList from "../../components/ProductList/ProductList";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import Pagination from "../../components/Pagination/Pagination";
 import styles from "./Shop.module.css";
 
 export default function Shop() {
@@ -12,27 +9,29 @@ export default function Shop() {
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
   const allSelectedItems = Object.values(selectedCategory).flat();
+  const [isFilter, setIsFilter] = useState(false);
 
   const productsToRender =
-    Object.keys(selectedCategory).length > 1
+    Object.keys(selectedCategory).length > 0
       ? allSelectedItems
       : unsortedProducts;
 
   function handleChange(e, category, subCategory = null) {
     const target = e.target;
+    setIsFilter(true);
 
     //  if category is unchecked remove  its children from selectedCategory
     if (!subCategory && !target.checked) {
       const categoryItems = Object.keys(sortedProducts[category]);
       const newSelected = Object.fromEntries(
         Object.entries(selectedCategory).filter(
-          ([key]) => !categoryItems.includes(key)
-        )
+          ([key]) => !categoryItems.includes(key),
+        ),
       );
 
       // uncheck subs
       const categorySubs = Object.fromEntries(
-        Object.keys(sortedProducts[category]).map((i) => [i, false])
+        Object.keys(sortedProducts[category]).map((i) => [i, false]),
       );
 
       setSelectedCategory(newSelected);
@@ -43,7 +42,7 @@ export default function Shop() {
     // add category children
     if (!subCategory) {
       const categorySubs = Object.fromEntries(
-        Object.keys(sortedProducts[category]).map((i) => [i, true])
+        Object.keys(sortedProducts[category]).map((i) => [i, true]),
       );
 
       setCheckedStatus((prev) => ({ ...prev, ...categorySubs }));
@@ -66,7 +65,7 @@ export default function Shop() {
       setCheckedStatus((prev) => ({ ...prev, [subCategory]: true }));
     } else {
       newSelected = Object.fromEntries(
-        Object.entries(selectedCategory).filter(([k]) => k !== subCategory)
+        Object.entries(selectedCategory).filter(([k]) => k !== subCategory),
       );
       setCheckedStatus((prev) => ({ ...prev, [subCategory]: false }));
     }
@@ -161,7 +160,9 @@ export default function Shop() {
         </div>
       </aside>
 
-      <div className="list">{<Pagination products={productsToRender} />}</div>
+      <div className="list">
+        {<Outlet context={[productsToRender, isFilter, setIsFilter]} />}
+      </div>
     </section>
   );
 }
