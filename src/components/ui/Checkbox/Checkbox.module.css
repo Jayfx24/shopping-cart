@@ -1,5 +1,18 @@
-.checkBox{
+.checkBox {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.25em;
+    font-size: 1em;
+}
+
+.box {
+    font-size: 1.2em;
+    transform: scale(1.25);
+
+}
+
+.box::marker{
+    font-size: 3em;
+
 }
