@@ -53,3 +53,13 @@ a {
 fieldset{
   border: none;
 }
+
+summary{
+ font-size: 1.2em;
+ /* display: ; */
+}
+
+details summary::marker,:is(::-webkit-details-marker){
+  content: '';
+  list-style: none;
+}

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useOutletContext, Outlet } from "react-router";
+import { useOutletContext, Outlet, Link } from "react-router";
 import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
 import styles from "./Shop.module.css";
+import { ChevronDown, SlidersHorizontal } from "lucide-react";
 
 export default function Shop() {
   const { sortedProducts, unsortedProducts } = useOutletContext();
@@ -75,42 +76,52 @@ export default function Shop() {
   }
 
   return (
-    <section className={`${styles.shop} container`}>
+    <section className={`${styles.shop} container row-col`}>
+
       <aside className={`${styles.aside} `}>
-        <div className="categories">
+        <div className={styles.categories}>
           <h2>Category</h2>
           {Object.entries(sortedProducts).map(([category, values]) => {
             return (
-              <fieldset key={`all-${category}`}>
-                <legend>
-                  <Checkbox
+              <details name="category" className="">
+                <summary className="row btw">
+                  {category}
+                  <ChevronDown />
+                </summary>
+                <div className={styles.selectAll}>
+                  <label htmlFor="">Select all</label>
+                  <input
+                    type="checkbox"
                     label={category}
                     id={`all-${category}`}
                     onChange={(e) => handleChange(e, category)}
                   />
-                </legend>
-
-                <div className={styles.filterSub}>
-                  {Object.entries(values).map(([subCategory, _]) => {
-                    const isSelected = checkedStatus[subCategory] ?? false;
-                    return (
-                      <Checkbox
-                        key={`${category}-${subCategory}`}
-                        label={subCategory}
-                        id={subCategory}
-                        onChange={(e) => handleChange(e, category, subCategory)}
-                        isChecked={isSelected}
-                      />
-                    );
-                  })}
                 </div>
-              </fieldset>
+                <ul key={`all-${category}`}>
+                  <div className={styles.filterSub}>
+                    {Object.entries(values).map(([subCategory, _]) => {
+                      const isSelected = checkedStatus[subCategory] ?? false;
+                      return (
+                        <Checkbox
+                          key={`${category}-${subCategory}`}
+                          label={subCategory}
+                          id={subCategory}
+                          onChange={(e) =>
+                            handleChange(e, category, subCategory)
+                          }
+                          isChecked={isSelected}
+                        />
+                      );
+                    })}
+                  </div>
+                </ul>
+              </details>
             );
           })}
         </div>
         <div className="price-filter">
-          <h2>Price</h2>
-
+    
+{/* 
           <input
             type="range"
             name="price-range"
@@ -118,22 +129,22 @@ export default function Shop() {
             min={0}
             max={100}
             value={0}
-          />
-        </div>
-
-        <div className="price-input">
+          /> */}
+        <div className={styles.priceInput}>
           <label htmlFor="price-from">
             $
             <input type="number" name="price-from" id="price-from" />
           </label>
-          <span> To </span>
+          <span> - </span>
           <label htmlFor="price-to">
             $
             <input type="number" name="price-to" id="price-to" />
           </label>
         </div>
+        </div>
 
-        <div className="s">
+
+        <div className={`${styles.shipping} hide-m`}>
           <h2>Shipping & Delivery</h2>
 
           <div className="s-i">
@@ -160,8 +171,19 @@ export default function Shop() {
         </div>
       </aside>
 
-      <div className="list">
-        {<Outlet context={[productsToRender, isFilter, setIsFilter]} />}
+      <div className="content">
+        <div id="products">
+          <div className="row btw">
+            <h2>Products</h2>
+            <SlidersHorizontal className={styles.filterIcon} />
+          </div>
+          {<Outlet context={[productsToRender, isFilter, setIsFilter]} />}
+        </div>
+        <div className={styles.bonus}>
+          <h2>40%</h2>
+          <p>Fashion Sales</p>
+          <Link to="/products">Shop Now</Link>
+        </div>
       </div>
     </section>
   );

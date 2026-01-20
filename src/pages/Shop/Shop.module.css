@@ -1,12 +1,100 @@
-.shop{
-    display: flex;
+.shop {
+    align-items: start;
+    gap: 2em;
 }
 
-.aside{
+.aside {
     width: 300px;
-    border: 1px solid;
+    display: grid;
+    gap: 1.5em;
+    /* border: 1px solid; */
 }
 
-.filterSub{
-    padding-inline-start: 1em;
+.categories{
+    min-height: 100px;
+}
+
+.shipping{
+    margin-block-start: 3em;
+}
+.filterSub {
+    /* padding-inline-start: 1em; */
+}
+
+.bonus {
+    width: 100%;
+    min-height: 600px;
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 0.9), hsla(0, 0%, 0%, 0.1)),
+        url('../../assets/images/Urban\ Group\ Portrait.webp') top center / cover no-repeat;
+    border-radius: var(--br-xl);
+    position: relative;
+
+}
+
+
+.dropdown {
+    cursor: pointer;
+    position: relative;
+}
+
+.panel {
+    /* display: none; */
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    /* opacity: 0; */
+
+}
+
+.dropdown:hover .panel {
+    height: 100%;
+    opacity: 1;
+}
+
+.selectAll {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: .5em;
+    font-size: 14px;
+}
+
+.filterIcon {
+    display: none;
+}
+
+.priceInput{
+    display: flex;
+    gap: .25em;
+}
+
+.priceInput input[type="number"]{
+    width: 100%;
+    border: none;
+    border-inline-start: 1px solid;
+    outline:none;
+    padding: .25em .5em;
+    flex:1;
+}
+
+.priceInput label{
+    border: 1px solid;
+    display: flex;
+    gap:0.25em;
+    padding-inline-start: .25em;
+    max-width: 6em;
+
+}
+
+
+
+
+@media (max-width:787px) {
+
+    .aside{
+        
+    }
+    .filterIcon {
+        display: block;
+    }
 }

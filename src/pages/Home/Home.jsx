@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <section className={styles.hero}>
-        <div className={styles.content + " container row"}>
+        <div className={styles.content + " container row-col"}>
           <div className={styles.texts}>
             <h1 className={styles.title}>Elevate Your Style, Every Day</h1>
             <div className={styles.subTitle}>
@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className={styles.showcase + " " + "container"}>
         <nav className="">
-          <ul className={styles.nav + " " + "row"}>
+          <ul className={styles.nav + " " + "row-col"}>
             <li>
               <Button
                 className={category === "x" ? "active-cat" : ""}
@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       <section className="info container">
-        <div className={`row-btw ${styles.infoText}`}>
+        <div className={`row-col btw ${styles.infoText}`}>
           <h2>ADJUST TO YOUR EVERYDAY CLOTHING NEEDS!</h2>
 
           <p> GET READY FOR AN ELECTRIFYING SHOPPING EXPERIENCE!</p>

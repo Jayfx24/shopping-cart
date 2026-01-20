@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {
   useParams,
   useOutletContext,
@@ -49,7 +49,7 @@ export default function Products() {
         ))}
       </ProductList>
 
-      <ul className="row">
+      <ul className="row-wrap">
         {Array.from({ length: totalPages }, (_, i) => {
           const count = i + 1;
           return (

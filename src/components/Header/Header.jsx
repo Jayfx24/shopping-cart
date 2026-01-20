@@ -4,12 +4,12 @@ import styles from "./Header.module.css";
 
 export default function Header() {
   return (
-    <header className={`${styles.header} container row-btw`}>
-      <div className="row">
+    <header className={`${styles.header} container row-col btw`}>
+      <div className="row-col">
         <h1 className="logo">Who'sStore</h1>
 
         <nav>
-          <ul className={`${styles.navList} row`}>
+          <ul className={`${styles.navList} row-col`}>
             <li className="nav__item">
               <Link to="/" className={`${styles.navLink}`}>
                 Home
@@ -30,7 +30,7 @@ export default function Header() {
       </div>
 
       <nav className={styles.navIcons}>
-        <ul className="nav-list row">
+        <ul className="nav-list row-col">
           <li className={`${styles.navIcon}`}>
             <Link to="/" className={`${styles.navIconLink}`}>
               {<Home />}

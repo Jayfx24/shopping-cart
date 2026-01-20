@@ -5,13 +5,13 @@ import styles from "./Footer.module.css"
 
 export default function Footer() {
   return (
-    <footer className={`container row-btw ${styles.footer}`}>
+    <footer className={`container row-col btw ${styles.footer}`}>
       <div className={styles.firstCol}>
         <div className="col">
           <div className="logo-wrapper">
             <h2 className="logo">Who'sStore</h2>
           </div>
-          <ul className="socials row">
+          <ul className="socials row-col">
             <li className="social">Facebook</li>
             <li className="social">X</li>
             <li className="social">Github</li>
