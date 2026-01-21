@@ -9,7 +9,7 @@ export default function Header() {
         <h1 className="logo">Who'sStore</h1>
 
         <nav>
-          <ul className={`${styles.navList} row-col`}>
+          <ul className={`${styles.navList} row`}>
             <li className="nav__item">
               <Link to="/" className={`${styles.navLink}`}>
                 Home

@@ -174,7 +174,7 @@ export default function Shop() {
             <h2>Products</h2>
             <SlidersHorizontal className={styles.filterIcon} />
           </div>
-          {<Outlet context={[productsToRender, isFilter, setIsFilter, handleCartClick]} />}
+          {<Outlet context={[productsToRender, isFilter, setIsFilter,handleCartClick ]} />}
         </div>
         <div className={styles.bonus}>
           <h2>40%</h2>

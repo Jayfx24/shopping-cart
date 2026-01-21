@@ -31,11 +31,9 @@
 }
 
 
-@media (max-width:768px) {
+@media (max-width:855px) {
     .navIcons{
    display: none;
 }
-    .navList{
-        flex-direction: row;
-    }
+    
 }

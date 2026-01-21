@@ -8,6 +8,7 @@ import {
 } from "react-router";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductList from "../ProductList/ProductList";
+import styles from "./Products.module.css";
 
 export default function Products() {
   const [products, isFilter, setIsFilter, handleCartClick] = useOutletContext();
@@ -16,7 +17,7 @@ export default function Products() {
   const currentPage = Number(page ?? 1);
   const dataLimit = 12;
   const totalPages = Math.ceil(products.length / dataLimit);
-
+  console.log(currentPage);
 
   useEffect(() => {
     if (isFilter) {
@@ -41,35 +42,36 @@ export default function Products() {
   };
 
   return (
-    <div className="">
+    <div className={styles.content}>
       <ProductList>
         {currentRender.map((item) => (
-          <ProductCard product={item}  onClick={handleCartClick}/>
+          <ProductCard product={item} onClick={handleCartClick} />
         ))}
       </ProductList>
 
-      <ul className="row-wrap">
-        {Array.from({ length: totalPages }, (_, i) => {
-          const count = i + 1;
-          return (
-            <NavLink
-              key={count}
-              to={`/products/${count}`}
-              className={({ isActive }) =>
-                isActive ? "p-active" : "p-pending"
-              }
-            >
-              <p>{count}</p>
-            </NavLink>
-          );
-        })}
-      </ul>
-
       {btnStatus && (
-        <div className="">
-          {currentPage > 1 && <button onClick={handlePrevious}>Left</button>}
+        <div className="row center">
+          {currentPage > 1 && <Link to={`../${currentPage - 1}`}>Prev</Link>}
+          {totalPages > 1 && (
+            <ul className={`${styles.pageNum} row-wrap `}>
+              {Array.from({ length: totalPages }, (_, i) => {
+                const count = i + 1;
+                return (
+                  <NavLink
+                    key={count}
+                    to={`/products/${count}`}
+                    className={({ isActive }) =>
+                      isActive ? styles.active : " "
+                    }
+                  >
+                    <p>{count}</p>
+                  </NavLink>
+                );
+              })}
+            </ul>
+          )}
           {currentPage < totalPages && (
-            <button onClick={handleNext}>Right</button>
+            <Link to={`../${currentPage + 1}`}>Next</Link>
           )}
         </div>
       )}

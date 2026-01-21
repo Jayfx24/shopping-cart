@@ -38,28 +38,11 @@
         url('../../assets/images/Urban\ Group\ Portrait.webp') top center / cover no-repeat;
     border-radius: var(--br-xl);
     position: relative;
-
+    margin-block-start: 4em;
 }
 
 
-.dropdown {
-    cursor: pointer;
-    position: relative;
-}
 
-.panel {
-    /* display: none; */
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease-in-out;
-    /* opacity: 0; */
-
-}
-
-.dropdown:hover .panel {
-    height: 100%;
-    opacity: 1;
-}
 
 .selectAll {
     display: flex;
@@ -95,6 +78,7 @@
     max-width: 6em;
 
 }
+
 
 
 

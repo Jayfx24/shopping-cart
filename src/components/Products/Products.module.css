@@ -1,0 +1,19 @@
+.content{
+    display: grid;
+    gap: 2em;
+}
+
+.pageNum {
+    text-align: center;
+    justify-content: center;
+    color: blue;
+}
+
+.active {
+    color: black;
+}
+
+.pageNum:not(:has(.active)) > :first-child {
+    color: black;
+
+}
