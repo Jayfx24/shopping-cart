@@ -6,7 +6,7 @@ import styles from "./Shop.module.css";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 
 export default function Shop() {
-  const { sortedProducts, unsortedProducts } = useOutletContext();
+  const { sortedProducts, unsortedProducts, handleCartClick } = useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
   const allSelectedItems = Object.values(selectedCategory).flat();
@@ -77,16 +77,15 @@ export default function Shop() {
 
   return (
     <section className={`${styles.shop} container row-col`}>
-
       <aside className={`${styles.aside} `}>
         <div className={styles.categories}>
           <h2>Category</h2>
           {Object.entries(sortedProducts).map(([category, values]) => {
             return (
-              <details name="category" className="">
+              <details name="category" className={styles.category}>
                 <summary className="row btw">
                   {category}
-                  <ChevronDown />
+                  <ChevronDown className="d-icon" />
                 </summary>
                 <div className={styles.selectAll}>
                   <label htmlFor="">Select all</label>
@@ -120,8 +119,7 @@ export default function Shop() {
           })}
         </div>
         <div className="price-filter">
-    
-{/* 
+          {/* 
           <input
             type="range"
             name="price-range"
@@ -130,19 +128,18 @@ export default function Shop() {
             max={100}
             value={0}
           /> */}
-        <div className={styles.priceInput}>
-          <label htmlFor="price-from">
-            $
-            <input type="number" name="price-from" id="price-from" />
-          </label>
-          <span> - </span>
-          <label htmlFor="price-to">
-            $
-            <input type="number" name="price-to" id="price-to" />
-          </label>
+          <div className={styles.priceInput}>
+            <label htmlFor="price-from">
+              $
+              <input type="number" name="price-from" id="price-from" />
+            </label>
+            <span> - </span>
+            <label htmlFor="price-to">
+              $
+              <input type="number" name="price-to" id="price-to" />
+            </label>
+          </div>
         </div>
-        </div>
-
 
         <div className={`${styles.shipping} hide-m`}>
           <h2>Shipping & Delivery</h2>
@@ -177,7 +174,7 @@ export default function Shop() {
             <h2>Products</h2>
             <SlidersHorizontal className={styles.filterIcon} />
           </div>
-          {<Outlet context={[productsToRender, isFilter, setIsFilter]} />}
+          {<Outlet context={[productsToRender, isFilter, setIsFilter, handleCartClick]} />}
         </div>
         <div className={styles.bonus}>
           <h2>40%</h2>

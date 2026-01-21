@@ -11,7 +11,7 @@ import urbanYImg from "../../assets/images/Stylish Person in Yellow Coat.webp";
 import urbanPImg from "../../assets/images/Urban Portrait with Vibrant Lights.webp";
 
 export default function Home() {
-  const { sortedProducts } = useOutletContext();
+  const { sortedProducts, handleCartClick } = useOutletContext();
   const sorted = homeProductSort(sortedProducts);
   const [category, setCategory] = useState("wears");
   const [data, setData] = useState(sorted[category]);
@@ -22,8 +22,8 @@ export default function Home() {
   };
 
   const currentList = Object.values(data.products)
-    .splice(0, 6)
-    ?.map((item) => <ProductCard {...item} />);
+    .splice(0, 8)
+    ?.map((item) => <ProductCard product={item} onClick={handleCartClick} />);
 
   return (
     <div className={styles.home}>

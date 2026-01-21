@@ -10,12 +10,13 @@ import ProductCard from "../ProductCard/ProductCard";
 import ProductList from "../ProductList/ProductList";
 
 export default function Products() {
-  const [products, isFilter, setIsFilter] = useOutletContext();
+  const [products, isFilter, setIsFilter, handleCartClick] = useOutletContext();
   const { page } = useParams();
   const navigate = useNavigate();
   const currentPage = Number(page ?? 1);
   const dataLimit = 12;
   const totalPages = Math.ceil(products.length / dataLimit);
+
 
   useEffect(() => {
     if (isFilter) {
@@ -27,8 +28,6 @@ export default function Products() {
     (currentPage - 1) * dataLimit,
     currentPage * dataLimit,
   );
-
-  console.log(isFilter);
 
   const currentRender = products.length > dataLimit ? paginatedItems : products;
   const btnStatus = products.length > dataLimit ? true : false;
@@ -45,7 +44,7 @@ export default function Products() {
     <div className="">
       <ProductList>
         {currentRender.map((item) => (
-          <ProductCard {...item} />
+          <ProductCard product={item}  onClick={handleCartClick}/>
         ))}
       </ProductList>
 

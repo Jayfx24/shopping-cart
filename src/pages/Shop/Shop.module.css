@@ -14,12 +14,22 @@
     min-height: 100px;
 }
 
+
+.category{
+    border: 1px solid grey;
+    padding: .5em .75em;
+    border-radius: 8px;
+    margin-block-end: .5em;
+}
+
 .shipping{
     margin-block-start: 3em;
 }
 .filterSub {
     /* padding-inline-start: 1em; */
 }
+
+
 
 .bonus {
     width: 100%;
