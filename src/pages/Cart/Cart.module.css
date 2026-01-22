@@ -1,0 +1,17 @@
+.list{
+    display: grid;
+    /* grid-template-rows: repeat(auto-fit, 300px); */
+}
+
+.cart{
+    display: flex;
+    align-items: start;
+    column-gap: 5em;
+}
+
+.summary{
+    border: 1px solid;
+    width: 300px;
+    min-height: 400px;
+    padding: 1em 2em;
+}

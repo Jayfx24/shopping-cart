@@ -1,0 +1,48 @@
+.card {
+    position: relative;
+    width: 100%;
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    column-gap: 4em;
+}
+
+.img {
+    width: 150px;
+    background-color: grey;
+}
+
+.del {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+}
+
+.content{
+    padding-inline: 1em;
+    display: grid;
+    gap: .5em;
+}
+
+.title{
+    font-size: 1.5em;
+    line-height: 1.125;
+    max-width: 15ch;
+}
+
+.price {
+    position: relative;
+    width: fit-content;
+    font-weight: 100;
+    margin-left: auto;
+
+}
+
+.price::before {
+    content: 'each';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: -35px;
+    font-size: 14px;
+}

@@ -65,8 +65,44 @@ main {
   gap: 1rem;
 }
 
+.count-wrapper {
+
+  width: 150px;
+  gap: 0;
+  border-radius: 4px;
+  justify-content: space-between;
+  
+
+}
+
+.cart__btn {
+  padding: 0 .5em;
+  text-align: center;
+  font-size: inherit;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: inherit;
+  /* width: 100%; */
+}
 
 
+
+.cart__btn {}
+
+.cart__btn {
+  width: 35px;
+  font-size: 1.25em;
+  /* border: 1px solid; */
+
+}
+
+
+.cart__btn:hover,
+.cart__btn:active {
+  background-color: grey;
+  color: white;
+}
 
 @media (max-width:855px) {
 

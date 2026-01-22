@@ -21,7 +21,7 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav__item">
-              <Link to="/" className={`${styles.navLink}`}>
+              <Link to="cart" className={`${styles.navLink}`}>
                 Cart
               </Link>
             </li>
