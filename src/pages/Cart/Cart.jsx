@@ -5,13 +5,23 @@ import styles from "./Cart.module.css";
 export default function CartPage() {
   const { cart, handleCartDelete } = useOutletContext();
   console.log(cart);
-  const totalProductCost = Object.values(cart).reduce()
+  const subTotal = Object.values(cart).reduce((acc, { product, count }) => {
+    return acc + count * product.price;
+  }, 0);
+  const deliveryCost = 15;
+  const tax = 7.5;
+  const totalCost = (subTotal + deliveryCost + subTotal * (tax / 100)).toFixed(
+    2,
+  );
+
+  console.log(subTotal, totalCost);
 
   return (
-    <section className={styles.cart}>
+    <section className={`${styles.cart} row-col btw container`}>
       <div className={styles.list}>
         {Object.entries(cart).map(([k, v]) => (
           <CartProductCard
+            key={v.product.id}
             product={v.product}
             count={v.count}
             title={k}
@@ -21,14 +31,30 @@ export default function CartPage() {
       </div>
 
       <div className={styles.summary}>
-        <h2>Total</h2>
-        <ul>
-            <li className=""><span>Subtotal</span></li>
-            <li className=""><span>Delivery</span></li>
-            <li className=""><span>Pickup</span></li>
-            <li className=""><span>Tax </span></li>
-            <li className=""><span></span></li>
-        </ul>
+        <div className={styles.summaryContent}>
+          <h2>${totalCost}</h2>
+          <ul className={styles.breakdown}>
+            <li className={`row btw`}>
+              <span>Subtotal</span>
+              <span className={styles.itemValue}>${subTotal}</span>
+            </li>
+            <li className={`row btw`}>
+              <span>Delivery </span>{" "}
+              <span className={styles.itemValue}>${deliveryCost}</span>
+            </li>
+            <li className={`row btw`}>
+              <span>Pickup </span>
+              <span className={styles.itemValue}>Free</span>
+            </li>
+            <li className={`row btw`}>
+              <span>Tax </span>
+              <span className={styles.itemValue}>{tax}%</span>
+            </li>
+          
+          </ul>
+        </div>
+       
+        <button className={styles.checkout}>Checkout</button>
       </div>
     </section>
   );

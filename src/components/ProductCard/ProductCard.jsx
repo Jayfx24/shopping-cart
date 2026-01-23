@@ -1,6 +1,6 @@
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ product, onClick }) {
+export default function ProductCard({count, product, onClick }) {
   const cleanCategory = product.category.split("-").join(" ");
 
   return (
@@ -13,11 +13,23 @@ export default function ProductCard({ product, onClick }) {
         <h1 className={styles.title}>{product.title}</h1>
         <h2 className={styles.price}>${product.price}</h2>
       </div>
-      <div className="">
-        <button id="addItem" onClick={(e) => onClick(e, product)}>
+
+      <div className="count-wrapper row">
+        <button
+          id="addItem"
+          className="cart__btn"
+          onClick={(e) => onClick(e, product)}
+        >
           +
         </button>
-        <button id="removeItem" onClick={(e) => onClick(e, product)}>
+
+        <span className="count"> {count ?? 0}</span>
+
+        <button
+          id="removeItem"
+          className="cart__btn"
+          onClick={(e) => onClick(e, product)}
+        >
           -
         </button>
       </div>

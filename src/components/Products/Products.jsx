@@ -45,7 +45,7 @@ export default function Products() {
     <div className={styles.content}>
       <ProductList>
         {currentRender.map((item) => (
-          <ProductCard product={item} onClick={handleCartClick} />
+          <ProductCard key={item.id} product={item} onClick={handleCartClick} />
         ))}
       </ProductList>
 
@@ -58,7 +58,7 @@ export default function Products() {
                 const count = i + 1;
                 return (
                   <NavLink
-                    key={count}
+                    key={`pageNum-${count}`}
                     to={`/products/${count}`}
                     className={({ isActive }) =>
                       isActive ? styles.active : " "

@@ -6,7 +6,8 @@ import styles from "./Shop.module.css";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 
 export default function Shop() {
-  const { sortedProducts, unsortedProducts, handleCartClick } = useOutletContext();
+  const { sortedProducts, unsortedProducts, handleCartClick } =
+    useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
   const allSelectedItems = Object.values(selectedCategory).flat();
@@ -82,7 +83,7 @@ export default function Shop() {
           <h2>Category</h2>
           {Object.entries(sortedProducts).map(([category, values]) => {
             return (
-              <details name="category" className={styles.category}>
+              <details key={category} name="category" className={styles.category}>
                 <summary className="row btw">
                   {category}
                   <ChevronDown className="d-icon" />
@@ -96,30 +97,27 @@ export default function Shop() {
                     onChange={(e) => handleChange(e, category)}
                   />
                 </div>
-                <ul key={`all-${category}`}>
-                  <div className={styles.filterSub}>
-                    {Object.entries(values).map(([subCategory, _]) => {
-                      const isSelected = checkedStatus[subCategory] ?? false;
-                      return (
-                        <Checkbox
-                          key={`${category}-${subCategory}`}
-                          label={subCategory}
-                          id={subCategory}
-                          onChange={(e) =>
-                            handleChange(e, category, subCategory)
-                          }
-                          isChecked={isSelected}
-                        />
-                      );
-                    })}
-                  </div>
+                <ul key={`all-${category}`} className={styles.filterSub}>
+                  {Object.entries(values).map(([subCategory, _]) => {
+                    const isSelected = checkedStatus[subCategory] ?? false;
+
+                    return (
+                      <Checkbox
+                        key={`${subCategory}`}
+                        label={subCategory}
+                        id={subCategory}
+                        onChange={(e) => handleChange(e, category, subCategory)}
+                        isChecked={isSelected}
+                      />
+                    );
+                  })}
                 </ul>
               </details>
             );
           })}
         </div>
-        <div className="price-filter">
-          {/* 
+        {/* <div className="price-filter">
+          
           <input
             type="range"
             name="price-range"
@@ -127,7 +125,7 @@ export default function Shop() {
             min={0}
             max={100}
             value={0}
-          /> */}
+          />
           <div className={styles.priceInput}>
             <label htmlFor="price-from">
               $
@@ -139,7 +137,7 @@ export default function Shop() {
               <input type="number" name="price-to" id="price-to" />
             </label>
           </div>
-        </div>
+        </div> */}
 
         <div className={`${styles.shipping} hide-m`}>
           <h2>Shipping & Delivery</h2>
@@ -174,7 +172,16 @@ export default function Shop() {
             <h2>Products</h2>
             <SlidersHorizontal className={styles.filterIcon} />
           </div>
-          {<Outlet context={[productsToRender, isFilter, setIsFilter,handleCartClick ]} />}
+          {
+            <Outlet
+              context={[
+                productsToRender,
+                isFilter,
+                setIsFilter,
+                handleCartClick,
+              ]}
+            />
+          }
         </div>
         <div className={styles.bonus}>
           <h2>40%</h2>

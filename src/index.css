@@ -58,11 +58,11 @@ fieldset {
 
 summary {
   font-size: 1.2em;
-  /* display: ; */
+
 }
 
 details {
-    overflow: hidden;
+  overflow: hidden;
 
 }
 

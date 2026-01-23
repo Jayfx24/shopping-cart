@@ -71,6 +71,12 @@ function App() {
     },
   });
 
+  const cartCount = Object.values(cart).reduce(
+    (acc, { count }) => acc + count,
+    0,
+  );
+  const count = cartCount > 0 ? cartCount : '';
+
   const handleCartClick = (e, product) => {
     const target = e.target;
     const allListed = Object.hasOwn(cart, product.title);
@@ -95,21 +101,21 @@ function App() {
   const handleCartDelete = (title) => {
     const newCart = { ...cart };
     delete newCart[title];
-    setCart(newCart)
+    setCart(newCart);
   };
 
-  // const handleCartChange = (e, product) => {
-  //   const target = e.target
-
-  // };
-
-  //  delete
   return (
     <section className="wrapper">
-      <Header />
+      <Header count={count} />
       <main>
         <Outlet
-          context={{ sortedProducts, unsortedProducts, cart, handleCartClick , handleCartDelete}}
+          context={{
+            sortedProducts,
+            unsortedProducts,
+            cart,
+            handleCartClick,
+            handleCartDelete,
+          }}
         />
       </main>
       <Footer />

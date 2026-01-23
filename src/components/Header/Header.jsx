@@ -2,7 +2,8 @@ import { Link } from "react-router";
 import { ShoppingCart, Home, Store } from "lucide-react";
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({count}) {
+ 
   return (
     <header className={`${styles.header} container row-col btw`}>
       <div className="row-col">
@@ -20,8 +21,8 @@ export default function Header() {
                 Products
               </Link>
             </li>
-            <li className="nav__item">
-              <Link to="cart" className={`${styles.navLink}`}>
+            <li data-count={count} className={`nav__item ${styles.count}`}>
+              <Link to="cart" className={`${styles.navLink} `}>
                 Cart
               </Link>
             </li>
@@ -36,12 +37,12 @@ export default function Header() {
               {<Home />}
             </Link>
           </li>
-          <li className={`${styles.navIcon}`}>
+          <li className={`${styles.navIcon} `}>
             <Link to="/" className={`${styles.navIconLink}`}>
               <Store />
             </Link>
           </li>
-          <li className={`${styles.navIcon}`}>
+          <li className={`${styles.navIcon}  ${styles.count}`} data-count={count}>
             <Link to="/" className={`${styles.navIconLink}`}>
               {<ShoppingCart />}
             </Link>

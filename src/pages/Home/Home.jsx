@@ -23,7 +23,7 @@ export default function Home() {
 
   const currentList = Object.values(data.products)
     .splice(0, 8)
-    ?.map((item) => <ProductCard product={item} onClick={handleCartClick} />);
+    ?.map((item) => <ProductCard key={item.id} product={item} onClick={handleCartClick} />);
 
   return (
     <div className={styles.home}>

@@ -7,19 +7,23 @@
     width: 300px;
     display: grid;
     gap: 1.5em;
+    align-content: space-between;
+
     /* border: 1px solid; */
 }
 
 .categories{
-    min-height: 100px;
+    /* min-height: 100px; */
 }
 
 
 .category{
-    border: 1px solid grey;
+    border: 1px solid red;
     padding: .5em .75em;
     border-radius: 8px;
     margin-block-end: .5em;
+  /* max-height: 400px; */
+    overflow-y: auto;
 }
 
 .shipping{
@@ -80,7 +84,14 @@
 }
 
 
+@media (min-width:1024px) {
 
+    .aside{
+        min-height: 800px;
+        border: 1px solid;
+    }
+  
+}
 
 
 @media (max-width:787px) {

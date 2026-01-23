@@ -1,29 +1,46 @@
-.header{
-    background-color: hsla(0, 0%, 50%,0.15);
+.header {
+    background-color: hsla(0, 0%, 50%, 0.15);
     border-radius: var(--br-xl);
 }
 
-.heading{
+.heading {
     font-size: var(--f-1_5);
 }
 
 
 
-.navLink{
+.navLink {
     font-size: 1.15em;
     text-transform: uppercase;
-  
+
+}
+
+.navIcon{
+
 }
 .navIcons{
-   
-}
-
-.navList{
 
 }
 
-.navIconLink{
-     background-color: white;
+.count {
+    position: relative;
+}
+
+.count::before {
+    content: attr(data-count);
+    font-size: 0.75em;
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: -5px;
+    /* padding: 0.5em; */
+    color:red;
+    font-weight: 700;
+}
+
+.navList {}
+
+.navIconLink {
+    background-color: white;
     padding: .5rem;
     border-radius: 50%;
     display: grid;
@@ -32,8 +49,8 @@
 
 
 @media (max-width:855px) {
-    .navIcons{
-   display: none;
-}
-    
+    .navIcons {
+        display: none;
+    }
+
 }
