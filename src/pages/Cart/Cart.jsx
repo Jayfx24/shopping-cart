@@ -17,7 +17,7 @@ export default function CartPage() {
   console.log(subTotal, totalCost);
 
   return (
-    <section className={`${styles.cart} row-col btw container`}>
+    <section className={`${styles.cart} row-col  container`}>
       <div className={styles.list}>
         {Object.entries(cart).map(([k, v]) => (
           <CartProductCard

@@ -17,27 +17,31 @@ export default function ProductCard({ count, product, onClick }) {
       </div>
       <div className={styles.content}>
         <span className={styles.category}>{cleanCategory.toUpperCase()}</span>
-        <h1 className={styles.title}>{product.title}</h1>
-        <h2 className={styles.price}>${product.price}</h2>
+        <div className={styles.texts}>
+          <h1 className={styles.title}>{product.title}</h1>
+          <h2 className={styles.price}>${product.price}</h2>
+        </div>
       </div>
 
       {isAvailable && (
         <div className={styles.counter}>
-          <span className="count"> {count ?? 0}</span>
-          <button
-            id="removeItem"
-            className="cart__btn"
-            onClick={(e) => onClick(e, product)}
-          >
-            -
-          </button>
-          <button
-            id="addItem"
-            className="cart__btn"
-            onClick={(e) => onClick(e, product)}
-          >
-            +
-          </button>
+          <span className="count counter--product"> {count ?? 0}</span>
+          <div className={styles.btns}>
+            <button
+              id="removeItem"
+              className="cart__btn"
+              onClick={(e) => onClick(e, product)}
+            >
+              -
+            </button>
+            <button
+              id="addItem"
+              className="cart__btn"
+              onClick={(e) => onClick(e, product)}
+            >
+              +
+            </button>
+          </div>
         </div>
       )}
       <div className={`${styles.status} ${status}`}>
