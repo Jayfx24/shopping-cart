@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useOutletContext,useLoaderData } from "react-router";
+import { useOutletContext, useLoaderData } from "react-router";
 import styles from "./Home.module.css";
 import ProductList from "../../components/ProductList/ProductList";
 import ProductCard from "../../components/ProductCard/ProductCard";
@@ -11,7 +11,7 @@ import urbanYImg from "../../assets/images/Stylish Person in Yellow Coat.webp";
 import urbanPImg from "../../assets/images/Urban Portrait with Vibrant Lights.webp";
 
 export default function Home() {
-  const { sortedProducts, handleCartClick } = useOutletContext();
+  const { sortedProducts, handleCartClick, cart } = useOutletContext();
   const sorted = homeProductSort(sortedProducts);
   const [category, setCategory] = useState("wears");
   const [data, setData] = useState(sorted[category]);
@@ -23,7 +23,18 @@ export default function Home() {
 
   const currentList = Object.values(data.products)
     .splice(0, 8)
-    ?.map((item) => <ProductCard key={item.id} product={item} onClick={handleCartClick} />);
+    ?.map((item) => {
+      const count = cart[item.title] ? cart[item.title].count : 0;
+
+      return (
+        <ProductCard
+          key={item.id}
+          product={item}
+          count={count}
+          onClick={handleCartClick}
+        />
+      );
+    });
 
   return (
     <div className={styles.home}>

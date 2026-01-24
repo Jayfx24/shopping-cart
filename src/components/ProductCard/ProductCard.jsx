@@ -1,8 +1,15 @@
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({count, product, onClick }) {
+export default function ProductCard({ count, product, onClick }) {
   const cleanCategory = product.category.split("-").join(" ");
 
+  const statusMap = {
+    "In Stock": styles.inStock,
+    "Low Stock": styles.lowStock,
+  };
+  const status = statusMap[product.availabilityStatus] ?? styles.outStore;
+  const isAvailable = product.availabilityStatus !== "Out of Stock";
+  
   return (
     <article className={styles.card}>
       <div className="img-wrapper">
@@ -14,24 +21,27 @@ export default function ProductCard({count, product, onClick }) {
         <h2 className={styles.price}>${product.price}</h2>
       </div>
 
-      <div className="count-wrapper row">
-        <button
-          id="addItem"
-          className="cart__btn"
-          onClick={(e) => onClick(e, product)}
-        >
-          +
-        </button>
-
-        <span className="count"> {count ?? 0}</span>
-
-        <button
-          id="removeItem"
-          className="cart__btn"
-          onClick={(e) => onClick(e, product)}
-        >
-          -
-        </button>
+      {isAvailable && (
+        <div className={styles.counter}>
+          <span className="count"> {count ?? 0}</span>
+          <button
+            id="removeItem"
+            className="cart__btn"
+            onClick={(e) => onClick(e, product)}
+          >
+            -
+          </button>
+          <button
+            id="addItem"
+            className="cart__btn"
+            onClick={(e) => onClick(e, product)}
+          >
+            +
+          </button>
+        </div>
+      )}
+      <div className={`${styles.status} ${status}`}>
+        <span>{product.availabilityStatus}</span>
       </div>
     </article>
   );

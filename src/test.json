@@ -24,31 +24,7 @@
             "warrantyInformation": "1 week warranty",
             "shippingInformation": "Ships in 3-5 business days",
             "availabilityStatus": "In Stock",
-            "reviews": [
-                {
-                    "rating": 3,
-                    "comment": "Would not recommend!",
-                    "date": "2025-04-30T09:41:02.053Z",
-                    "reviewerName": "Eleanor Collins",
-                    "reviewerEmail": "eleanor.collins@x.dummyjson.com"
-                },
-                {
-                    "rating": 4,
-                    "comment": "Very satisfied!",
-                    "date": "2025-04-30T09:41:02.053Z",
-                    "reviewerName": "Lucas Gordon",
-                    "reviewerEmail": "lucas.gordon@x.dummyjson.com"
-                },
-                {
-                    "rating": 5,
-                    "comment": "Highly impressed!",
-                    "date": "2025-04-30T09:41:02.053Z",
-                    "reviewerName": "Eleanor Collins",
-                    "reviewerEmail": "eleanor.collins@x.dummyjson.com"
-                }
-            ],
-            "returnPolicy": "No return policy",
-            "minimumOrderQuantity": 48,
+            
             "meta": {
                 "createdAt": "2025-04-30T09:41:02.053Z",
                 "updatedAt": "2025-04-30T09:41:02.053Z",

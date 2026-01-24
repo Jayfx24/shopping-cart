@@ -6,7 +6,7 @@ import styles from "./Shop.module.css";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 
 export default function Shop() {
-  const { sortedProducts, unsortedProducts, handleCartClick } =
+  const { sortedProducts, unsortedProducts, handleCartClick, cart } =
     useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
@@ -179,6 +179,7 @@ export default function Shop() {
                 isFilter,
                 setIsFilter,
                 handleCartClick,
+                cart
               ]}
             />
           }

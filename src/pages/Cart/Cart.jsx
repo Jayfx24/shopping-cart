@@ -3,7 +3,7 @@ import CartProductCard from "../../components/CartProductCard/CartProductCard";
 import styles from "./Cart.module.css";
 
 export default function CartPage() {
-  const { cart, handleCartDelete } = useOutletContext();
+  const { cart, handleCartDelete, handleCartClick } = useOutletContext();
   console.log(cart);
   const subTotal = Object.values(cart).reduce((acc, { product, count }) => {
     return acc + count * product.price;
@@ -26,6 +26,7 @@ export default function CartPage() {
             count={v.count}
             title={k}
             handleDelete={handleCartDelete}
+            onClick={handleCartClick}
           />
         ))}
       </div>
@@ -50,10 +51,9 @@ export default function CartPage() {
               <span>Tax </span>
               <span className={styles.itemValue}>{tax}%</span>
             </li>
-          
           </ul>
         </div>
-       
+
         <button className={styles.checkout}>Checkout</button>
       </div>
     </section>

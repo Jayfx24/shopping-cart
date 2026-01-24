@@ -11,7 +11,8 @@ import ProductList from "../ProductList/ProductList";
 import styles from "./Products.module.css";
 
 export default function Products() {
-  const [products, isFilter, setIsFilter, handleCartClick] = useOutletContext();
+  const [products, isFilter, setIsFilter, handleCartClick, cart] =
+    useOutletContext();
   const { page } = useParams();
   const navigate = useNavigate();
   const currentPage = Number(page ?? 1);
@@ -33,20 +34,20 @@ export default function Products() {
   const currentRender = products.length > dataLimit ? paginatedItems : products;
   const btnStatus = products.length > dataLimit ? true : false;
 
-  const handleNext = () => {
-    navigate(`../${currentPage + 1}`);
-  };
-
-  const handlePrevious = () => {
-    navigate(`../${currentPage - 1}`);
-  };
-
   return (
     <div className={styles.content}>
       <ProductList>
-        {currentRender.map((item) => (
-          <ProductCard key={item.id} product={item} onClick={handleCartClick} />
-        ))}
+        {currentRender.map((item) => {
+          const count = cart[item.title] ? cart[item.title].count : 0;
+          return (
+            <ProductCard
+              key={item.id}
+              product={item}
+              count={count}
+              onClick={handleCartClick}
+            />
+          );
+        })}
       </ProductList>
 
       {btnStatus && (

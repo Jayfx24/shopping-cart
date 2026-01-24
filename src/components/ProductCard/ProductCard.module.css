@@ -1,10 +1,11 @@
 .card{
     width: 100%;
-    /* max-width: 350px; */
     height: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1.5em 2em;
     background-color: hsla(0, 0%, 50%,0.1);
     border-radius: 16px;
+    position: relative;
+    display: grid;
 }
 
 .category{
@@ -26,4 +27,36 @@
 .content{
     display: grid;
     gap: .5rem;
+}
+
+.status{
+ position: absolute;
+ inset-block-start: 1em;
+ inset-inline-end: 0;
+ padding:  .25em 1.5em;
+ font-size: .85em;
+ font-weight: 600;
+ color: white;
+ border-radius: 32px  0 0 32px;
+ text-transform: uppercase;
+ opacity: .8;
+}
+
+.inStock{
+    background-color: green;
+}
+.lowStock{
+    background-color: orange;
+
+}
+.outStock{
+    background-color: red;
+
+}
+
+.counter{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-block-start: auto;
 }
