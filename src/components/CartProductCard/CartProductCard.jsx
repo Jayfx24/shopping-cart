@@ -22,7 +22,7 @@ export default function CartProductCard({
           <h1 className={styles.title}>{product.title}</h1>
           <h2 className={styles.price}>${product.price}</h2>
         </div>
-        <div className="row btw">
+        <div className="row-wrap btw">
           <div className="">
             <span className="row">
               Total Cost:
