@@ -21,7 +21,7 @@ export default function Header({count}) {
                 Products
               </Link>
             </li>
-            <li data-count={count} className={`nav__item ${styles.count}`}>
+            <li data-count={count} className={`nav__item `}>
               <Link to="cart" className={`${styles.navLink} `}>
                 Cart
               </Link>
@@ -31,19 +31,19 @@ export default function Header({count}) {
       </div>
 
       <nav className={styles.navIcons}>
-        <ul className="nav-list row-col">
-          <li className={`${styles.navIcon}`}>
+        <ul className="nav-list row">
+          <li className={`${styles.navIcon} hide-m`}>
             <Link to="/" className={`${styles.navIconLink}`}>
               {<Home />}
             </Link>
           </li>
-          <li className={`${styles.navIcon} `}>
-            <Link to="/" className={`${styles.navIconLink}`}>
+          <li className={`${styles.navIcon} hide-m `}>
+            <Link to="/products" className={`${styles.navIconLink}`}>
               <Store />
             </Link>
           </li>
           <li className={`${styles.navIcon}  ${styles.count}`} data-count={count}>
-            <Link to="/" className={`${styles.navIconLink}`}>
+            <Link to="/cart" className={`${styles.navIconLink}`}>
               {<ShoppingCart />}
             </Link>
           </li>

@@ -58,15 +58,17 @@ export default function Products() {
               {Array.from({ length: totalPages }, (_, i) => {
                 const count = i + 1;
                 return (
-                  <NavLink
-                    key={`pageNum-${count}`}
-                    to={`/products/${count}`}
-                    className={({ isActive }) =>
-                      isActive ? styles.active : " "
-                    }
-                  >
-                    <p>{count}</p>
-                  </NavLink>
+                  <li>
+                    <NavLink
+                      key={`pageNum-${count}`}
+                      to={`/products/${count}`}
+                      className={({ isActive }) =>
+                        isActive ? styles.active : " "
+                      }
+                    >
+                      <p>{count}</p>
+                    </NavLink>
+                  </li>
                 );
               })}
             </ul>

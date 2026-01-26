@@ -12,8 +12,8 @@ export default function ProductCard({ count, product, onClick }) {
   
   return (
     <article className={styles.card}>
-      <div className="img-wrapper">
-        <img src={product.images[0]} alt={product.title + "image"} />
+      <div className={styles.imgWrapper }>
+        <img src={product.images[0]} className={styles.productImg} alt={product.title + "image"} />
       </div>
       <div className={styles.content}>
         <span className={styles.category}>{cleanCategory.toUpperCase()}</span>
@@ -24,7 +24,7 @@ export default function ProductCard({ count, product, onClick }) {
       </div>
 
       {isAvailable && (
-        <div className={styles.counter}>
+        <div className={'counter'}>
           <span className="count counter--product"> {count ?? 0}</span>
           <div className={styles.btns}>
             <button
@@ -44,7 +44,7 @@ export default function ProductCard({ count, product, onClick }) {
           </div>
         </div>
       )}
-      <div className={`${styles.status} ${status}`}>
+      <div className={`${styles.status} ${status ?? styles.outStock}`}>
         <span>{product.availabilityStatus}</span>
       </div>
     </article>

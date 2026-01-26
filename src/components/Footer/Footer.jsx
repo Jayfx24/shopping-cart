@@ -21,7 +21,7 @@ export default function Footer() {
 
         <p>2026 ALL RIGHT RESERVED</p>
       </div>
-      <nav>
+      {/* <nav>
         <ul className={styles.navList}>
           <li className="navItem">
             <Link to="/" className="navLink">
@@ -39,7 +39,7 @@ export default function Footer() {
             </Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </footer>
   );
 }

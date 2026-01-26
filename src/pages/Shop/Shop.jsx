@@ -80,7 +80,11 @@ export default function Shop() {
     <section className={`${styles.shop} container row-col`}>
       <aside className={`${styles.aside} `}>
         <div className={styles.categories}>
-          <h2>Category</h2>
+          <div className="row btw">
+            <h2>Filter</h2>
+            {/* <SlidersHorizontal className={styles.filterIcon} /> */}
+          </div>
+
           {Object.entries(sortedProducts).map(([category, values]) => {
             return (
               <details key={category} name="category" className={styles.category}>
@@ -88,85 +92,67 @@ export default function Shop() {
                   {category}
                   <ChevronDown className="d-icon" />
                 </summary>
-                <div className={styles.selectAll}>
-                  <label htmlFor="">Select all</label>
-                  <input
-                    type="checkbox"
-                    label={category}
-                    id={`all-${category}`}
-                    onChange={(e) => handleChange(e, category)}
-                  />
+                <div className={styles.checkboxes}>
+                  <div className={styles.selectAll}>
+                    <label htmlFor="">Select all</label>
+                    <input
+                      type="checkbox"
+                      label={category}
+                      id={`all-${category}`}
+                      onChange={(e) => handleChange(e, category)}
+                    />
+                  </div>
+                  <ul key={`all-${category}`} className={styles.filterSub}>
+                    {Object.entries(values).map(([subCategory, _]) => {
+                      const isSelected = checkedStatus[subCategory] ?? false;
+                      const cleanSubeCategory = subCategory.replace(/-/g," ") 
+                      return (
+                        <Checkbox
+                          key={`${subCategory}`}
+                          label={cleanSubeCategory}
+                          id={subCategory}
+                          onChange={(e) => handleChange(e, category, subCategory)}
+                          isChecked={isSelected}
+                        />
+                      );
+                    })}
+                  </ul>
                 </div>
-                <ul key={`all-${category}`} className={styles.filterSub}>
-                  {Object.entries(values).map(([subCategory, _]) => {
-                    const isSelected = checkedStatus[subCategory] ?? false;
-
-                    return (
-                      <Checkbox
-                        key={`${subCategory}`}
-                        label={subCategory}
-                        id={subCategory}
-                        onChange={(e) => handleChange(e, category, subCategory)}
-                        isChecked={isSelected}
-                      />
-                    );
-                  })}
-                </ul>
               </details>
             );
           })}
         </div>
-        {/* <div className="price-filter">
-          
-          <input
-            type="range"
-            name="price-range"
-            id="price-range"
-            min={0}
-            max={100}
-            value={0}
-          />
-          <div className={styles.priceInput}>
-            <label htmlFor="price-from">
-              $
-              <input type="number" name="price-from" id="price-from" />
-            </label>
-            <span> - </span>
-            <label htmlFor="price-to">
-              $
-              <input type="number" name="price-to" id="price-to" />
-            </label>
-          </div>
-        </div> */}
-
+        
         <div className={`${styles.shipping} hide-m`}>
           <h2>Shipping & Delivery</h2>
 
-          <div className="s-i">
-            <Van />
-            <div className="s-t">
-              <p className="s-title"> Free Shipping </p>
-              <p className="s-sub">Free Shipping WorldWide for Our clients</p>
+          <div className={styles.info}>
+            <div className="s-i">
+              <Van size={42}/>
+              <div className="s-t">
+                <p className="s-title"> Free Shipping </p>
+                <p className="s-sub">Free Shipping WorldWide for Our clients</p>
+              </div>
             </div>
-          </div>
-          <div className="s-i">
-            <Headset />
-            <div className="s-t">
-              <p className="s-title"> Support 24/7 </p>
-              <p className="s-sub">Round the clock support</p>
+            <div className="s-i">
+              <Headset size={42} />
+              <div className="s-t">
+                <p className="s-title"> Support 24/7 </p>
+                <p className="s-sub">Round the clock support</p>
+              </div>
             </div>
-          </div>
-          <div className="s-i">
-            <RefreshCw />
-            <div className="s-t">
-              <p className="s-title"> 30 days Return </p>
-              <p className="s-sub"> Easy 30 days return for Our clients</p>
+            <div className="s-i">
+              <RefreshCw size={42} />
+              <div className="s-t">
+                <p className="s-title"> 30 days Return </p>
+                <p className="s-sub"> Easy 30 days return for Our clients</p>
+              </div>
             </div>
           </div>
         </div>
       </aside>
 
-      <div className="content">
+      <div className={styles.products}>
         <div id="products">
           <div className="row btw">
             <h2>Products</h2>
