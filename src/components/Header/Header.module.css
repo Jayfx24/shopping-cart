@@ -7,12 +7,26 @@
     font-size: var(--f-1_5);
 }
 
-
+.navList{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
 
 .navLink {
     font-size: 1.15em;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
 
+.navLink:hover{
+
+}
+
+.active{
+    color: blue;
 }
 
 .navIcon{
@@ -30,13 +44,13 @@
     content: attr(data-count);
     font-size: 0.75em;
     position: absolute;
-    inset-block-start: -.5rem;
+    inset-block-start: -1em;
     inset-inline-end: -16px;
     padding: 0.25em 0.75em;
-    background-color: red;
+    /* background-color: red; */
+    color: red;
     border-radius: 50px;
-    color:white;
-    font-weight: 700;
+    font-weight: 900;
     z-index: -1;
 }
 

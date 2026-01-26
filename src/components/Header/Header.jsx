@@ -1,51 +1,51 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { ShoppingCart, Home, Store } from "lucide-react";
 import styles from "./Header.module.css";
 
-export default function Header({count}) {
- 
+export default function Header({ count }) {
   return (
     <header className={`${styles.header} container row-col btw`}>
-      <div className="row-col">
-        <h1 className="logo">Who'sStore</h1>
+      <h1 className="logo">Who'sStore</h1>
 
-        <nav>
-          <ul className={`${styles.navList} row`}>
-            <li className="nav__item">
-              <Link to="/" className={`${styles.navLink}`}>
-                Home
-              </Link>
-            </li>
-            <li className="nav__item">
-              <Link to="products" className={`${styles.navLink}`}>
-                Products
-              </Link>
-            </li>
-            <li data-count={count} className={`nav__item `}>
-              <Link to="cart" className={`${styles.navLink} `}>
-                Cart
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <nav className={styles.navIcons}>
-        <ul className="nav-list row">
-          <li className={`${styles.navIcon} hide-m`}>
-            <Link to="/" className={`${styles.navIconLink}`}>
-              {<Home />}
-            </Link>
+      <nav>
+        <ul className={`${styles.navList} row`}>
+          <li className="nav__item">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+              }
+            >
+              {<Home size={24} />}
+              <span>Home</span>
+            </NavLink>
           </li>
-          <li className={`${styles.navIcon} hide-m `}>
-            <Link to="/products" className={`${styles.navIconLink}`}>
-              <Store />
-            </Link>
+          <li className="nav__item">
+            <NavLink
+              to="products"
+              className={({ isActive }) =>
+                isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+              }
+            >
+              <Store size={24} />
+              <span>Shop</span>
+            </NavLink>
           </li>
-          <li className={`${styles.navIcon}  ${styles.count}`} data-count={count}>
-            <Link to="/cart" className={`${styles.navIconLink}`}>
-              {<ShoppingCart />}
-            </Link>
+          <li className={`nav__item `}>
+            <NavLink
+              to="cart"
+              className={({ isActive }) =>
+                isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+              }
+            >
+              <span
+                data-count={count}
+                className={`${styles.navIcon} ${styles.count}`}
+              >
+                {<ShoppingCart className={styles.count} size={24} />}
+              </span>
+              <span>Cart</span>
+            </NavLink>
           </li>
         </ul>
       </nav>
