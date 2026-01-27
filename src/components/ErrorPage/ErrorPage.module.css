@@ -1,0 +1,18 @@
+.errPage{
+
+    text-align: center;
+    padding: 2em;
+}
+
+.title{
+    font-size: 3em;
+}
+
+.errPage a{
+    color: var(--primary-clr);
+    font-weight: 700;
+
+    &:hover{
+        border-bottom: 1px solid;
+    }
+}
