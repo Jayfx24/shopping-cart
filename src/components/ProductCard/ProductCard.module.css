@@ -53,7 +53,7 @@
 
 .status {
     position: absolute;
-    inset-block-start: 1em;
+    inset-block-start:1em;
     inset-inline-end: 0;
     padding: .25em 1.5em;
     font-size: .85em;

@@ -27,6 +27,7 @@
 
 .active{
     color: blue;
+    color: #3C6E71;
 }
 
 .navIcon{
@@ -49,6 +50,7 @@
     padding: 0.25em 0.75em;
     /* background-color: red; */
     color: red;
+    
     border-radius: 50px;
     font-weight: 900;
     z-index: -1;

@@ -73,7 +73,7 @@ export default function Shop() {
     }
 
     setSelectedCategory(newSelected);
-    console.log(selectedCategory);
+    
   }
 
   return (
@@ -94,7 +94,7 @@ export default function Shop() {
                 </summary>
                 <div className={styles.checkboxes}>
                   <div className={styles.selectAll}>
-                    <label htmlFor="">Select all</label>
+                    <label htmlFor="">Toggle all</label>
                     <input
                       type="checkbox"
                       label={category}
@@ -130,21 +130,21 @@ export default function Shop() {
             <div className="s-i">
               <Van size={42}/>
               <div className="s-t">
-                <p className="s-title"> Free Shipping </p>
+                <p className="s-title"> <strong>Free Shipping</strong> </p>
                 <p className="s-sub">Free Shipping WorldWide for Our clients</p>
               </div>
             </div>
             <div className="s-i">
               <Headset size={42} />
               <div className="s-t">
-                <p className="s-title"> Support 24/7 </p>
+                <p className="s-title"> <strong>Support 24/7</strong> </p>
                 <p className="s-sub">Round the clock support</p>
               </div>
             </div>
             <div className="s-i">
               <RefreshCw size={42} />
               <div className="s-t">
-                <p className="s-title"> 30 days Return </p>
+                <p className="s-title"> <strong>30 days Return </strong></p>
                 <p className="s-sub"> Easy 30 days return for Our clients</p>
               </div>
             </div>
@@ -152,12 +152,12 @@ export default function Shop() {
         </div>
       </aside>
 
-      <div className={styles.products}>
-        <div id="products">
-          <div className="row btw">
+      <div className={styles.content}>
+        <div id="products" className={styles.products}>
+          
             <h2>Products</h2>
-            <SlidersHorizontal className={styles.filterIcon} />
-          </div>
+            
+        
           {
             <Outlet
               context={[

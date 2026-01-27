@@ -54,14 +54,7 @@ export default function Home() {
       <section className={styles.showcase + " " + "container"}>
         <nav className="">
           <ul className={styles.nav + " " + "row-col"}>
-            <li>
-              <Button
-                className={category === "x" ? "active-cat" : ""}
-                onClick={() => handleClick()}
-              >
-                New
-              </Button>
-            </li>
+
             <li>
               <Button
                 className={category === "wears" ? "active-cat" : ""}

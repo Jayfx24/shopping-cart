@@ -33,7 +33,7 @@ export default function CartPage() {
 
       <div className={styles.summary}>
         <div className={styles.summaryContent}>
-          <h2>${totalCost}</h2>
+          <h2 className={styles.title}>Order Summary</h2>
           <ul className={styles.breakdown}>
             <li className={`row btw`}>
               <span>Subtotal</span>
@@ -52,6 +52,8 @@ export default function CartPage() {
               <span className={styles.itemValue}>{tax}%</span>
             </li>
           </ul>
+          <hr />
+          <div className={` ${styles.total} row btw`}>Total <span className="total">${totalCost}</span></div>
         </div>
 
         <button className={styles.checkout}>Checkout</button>
