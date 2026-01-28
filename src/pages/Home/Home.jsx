@@ -54,7 +54,6 @@ export default function Home() {
       <section className={styles.showcase + " " + "container"}>
         <nav className="">
           <ul className={styles.nav + " " + "row-col"}>
-
             <li>
               <Button
                 className={category === "wears" ? "active-cat" : ""}
@@ -91,7 +90,9 @@ export default function Home() {
         </nav>
         <div className={styles.scContent}>
           <div className={styles.scText}>
-            <h2 className={styles.scTitle}>{data.text.title}</h2>
+            <h2 className={styles.scTitle} data-testid="catalog-heading">
+              {data.text.title}
+            </h2>
             <p className={styles.scSubtitle}>{data.text.subtitle}</p>
           </div>
 

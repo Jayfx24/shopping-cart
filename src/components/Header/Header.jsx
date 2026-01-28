@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 export default function Header({ count }) {
   return (
     <header className={`${styles.header} container row-col btw`}>
-      <h1 className="logo">Who'sStore</h1>
+      <h1 className="logo">Store</h1>
 
       <nav>
         <ul className={`${styles.navList} row`}>

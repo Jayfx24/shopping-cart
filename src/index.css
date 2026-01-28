@@ -24,6 +24,10 @@
   --primary-clr: hsla(183, 31%, 34%, 1);
   --text-clr: hsla(0, 0%, 21%, 1);
   --accent-clr: hsla(204, 42%, 27%, 1);
+
+  --hero-img__desktop: url('../src/assets/images/freestocks-VFrcRtEQKL8-unsplash_wecrxf_c_scale\,w_1550.webp')  center / cover no-repeat;
+  --hero-img__tablet: url('../src/assets/images/freestocks-VFrcRtEQKL8-unsplash_wecrxf_c_scale\,w_1302.webp')  center / cover no-repeat;
+  --hero-img__mobile: url('../src/assets/images/freestocks-VFrcRtEQKL8-unsplash_wecrxf_c_scale\,w_768.webp')  center / cover no-repeat;
 }
 
 * {
@@ -36,6 +40,7 @@ body {
   font-size: 1rem;
   /* background-color: #D9D9D9; */
   color: var(--text-clr);
+  background:;
 }
 
 ul {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+
 import fetchAllProducts from "../services/api"
 import data from "../test.json";
 

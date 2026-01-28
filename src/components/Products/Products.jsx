@@ -31,6 +31,12 @@ export default function Products() {
     currentPage * dataLimit,
   );
 
+  useEffect(()=>{
+    if (currentPage > totalPages || currentPage < 1) {
+    navigate(`../`);
+  }
+  },[currentPage,totalPages,navigate])
+
   const currentRender = products.length > dataLimit ? paginatedItems : products;
   const btnStatus = products.length > dataLimit ? true : false;
 

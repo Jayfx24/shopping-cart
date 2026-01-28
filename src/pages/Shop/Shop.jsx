@@ -82,7 +82,7 @@ export default function Shop() {
         <div className={styles.categories}>
           <div className="row btw">
             <h2>Filter</h2>
-            {/* <SlidersHorizontal className={styles.filterIcon} /> */}
+  
           </div>
 
           {Object.entries(sortedProducts).map(([category, values]) => {
@@ -156,8 +156,6 @@ export default function Shop() {
         <div id="products" className={styles.products}>
           
             <h2>Products</h2>
-            
-        
           {
             <Outlet
               context={[

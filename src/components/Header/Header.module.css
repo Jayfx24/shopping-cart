@@ -19,14 +19,21 @@
     display: flex;
     align-items: center;
     gap: 0.25em;
+   
 }
 
+
+
+
 .navLink:hover{
+    color: var(--primary-clr);
+   
+  
 
 }
 
 .active{
-    color: blue;
+   
     color: #3C6E71;
 }
 
