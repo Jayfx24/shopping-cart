@@ -6,10 +6,12 @@
 
 
 #root {
+  width:100%;
   max-width: 1380px;
   margin: 0 auto;
   padding: 1rem 2rem;
   padding-block-end: 0;
+  position: relative;
   /* text-align: center; */
 }
 
@@ -211,21 +213,17 @@ main {
 
   #root {
     padding: 0;
-    gap: 0;
   }
 
-  .row-col,
-  .row-btw {
-    flex-direction: column;
-    align-items: start;
+  .wrapper{
+    gap: 0;
+
   }
 
-  .row-wrap{
-    gap: 0;
-  }
+  
 
   .container {
-    padding: 1.25em;
+    padding: 2em 1em;
   }
 
   .counter{
@@ -244,6 +242,18 @@ main {
 
 
 
+}
+
+@media (max-width:767px){
+  .row-col,
+  .row-btw {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .row-wrap{
+    gap: 0;
+  }
 }
 
 

@@ -102,7 +102,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.twoCol + " " + "container"}>
+      <section className={styles.twoCol}>
         <img
           src={urbanCImg}
           alt="Urban Contemplation"
@@ -124,8 +124,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="info container">
-        <div className={`row-col btw ${styles.infoText}`}>
+      <section className="info ">
+        <div className={`row-col btw ${styles.infoText} container`}>
           <h2>ADJUST TO YOUR EVERYDAY CLOTHING NEEDS!</h2>
 
           <p> GET READY FOR AN ELECTRIFYING SHOPPING EXPERIENCE!</p>
@@ -133,10 +133,7 @@ export default function Home() {
 
         <div className={styles.full}>
           <img src={urbanGImg} alt="" className={styles.fullImg} />
-          {/* <div className="">
-            <img src={urbanYImg} alt="" />
-            <img src={urbanPImg} alt="" />
-          </div> */}
+          
         </div>
       </section>
     </div>

@@ -18,7 +18,7 @@
 .content {
     align-items: start;
     gap: 2em;
-    
+
 }
 
 .list {
@@ -42,8 +42,9 @@
     display: grid;
 
     align-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 0 5px;
-    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0 5px;
+    border-radius: var(--br-xl);
+
 }
 
 .summaryContent {

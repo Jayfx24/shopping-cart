@@ -1,7 +1,7 @@
 .shop {
     align-items: start;
     gap: 2em;
-    
+
 }
 
 .aside {
@@ -10,64 +10,91 @@
     gap: 1.5em;
     align-content: space-between;
 
-    /* border: 1px solid; */
 }
 
-.categories h2{
-    font-weight: 100;
-    line-height: 1;    /* min-height: 100px; */
+.categories h2 {
+    font-weight: 300;
+    line-height: 1;
     margin-bottom: 2em;
 }
 
 
-.category{
-    /* border: 1px solid red; */
-    /* padding: .5em .75em; */
-    border-radius: 8px;
+.category {
     margin-block-end: .5em;
     text-transform: capitalize;
     width: 100%;
-  /* max-height: 400px; */
-    /* overflow-y: auto; */
 }
-.checkboxes{
+
+.checkboxes {
     padding-inline: .5em;
 
 }
-.shipping{
+
+.shipping {
     border-top: 1px solid;
-    
+    gap: 2em;
     padding-block-start: 3em;
     color: var(--accent-clr);
 }
 
-.shipping svg{
+.shipping h2{
+    margin-bottom: 2em;
 }
 
-.info{
+.info {
     display: grid;
     gap: 2em;
     margin-block-start: 1em;
 }
-.filterSub {
-}
 
-.content{
+.filterSub {}
+
+.content {
     width: 100%;
 }
 
-.products{
+.products {
     display: grid;
     gap: 2em;
 }
+
 .bonus {
     width: 100%;
     min-height: 600px;
-    background: linear-gradient(to right, hsla(0, 0%, 0%, 0.9), hsla(0, 0%, 0%, 0.1)),
-        url('../../assets/images/Urban\ Group\ Portrait.webp') top center / cover no-repeat;
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.1)),
+        /* url('../../assets/images/Urban\ Group\ Portrait.webp') top center / cover no-repeat; */
+        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') top center / cover no-repeat;
     border-radius: var(--br-xl);
     position: relative;
     margin-block-start: 4em;
+    padding: 2em 3em;
+    color: white;
+
+}
+
+.bonus div {
+    width: max-content;
+    text-align: right;
+}
+
+.bonus h2 {
+    font-size: clamp(5rem, 3.5841rem + 7.0796vw, 10rem);
+    line-height: 1;
+
+}
+
+.bonus p {
+
+    font-size: 1.5em;
+}
+
+.bonus a {
+    text-decoration: underline;
+    color: inherit;
+
+    &:hover {
+        color: var(--primary-clr);
+    }
 }
 
 
@@ -81,28 +108,26 @@
     font-size: 14px;
 }
 
-.filterIcon {
-    /* display: none; */
-}
+.filterIcon {}
 
-.priceInput{
+.priceInput {
     display: flex;
     gap: .25em;
 }
 
-.priceInput input[type="number"]{
+.priceInput input[type="number"] {
     width: 100%;
     border: none;
     border-inline-start: 1px solid;
-    outline:none;
+    outline: none;
     padding: .25em .5em;
-    flex:1;
+    flex: 1;
 }
 
-.priceInput label{
+.priceInput label {
     border: 1px solid;
     display: flex;
-    gap:0.25em;
+    gap: 0.25em;
     padding-inline-start: .25em;
     max-width: 6em;
 
@@ -111,29 +136,35 @@
 
 @media (min-width:1024px) {
 
-    .aside{
-        min-height: 800px;
-        /* border: 1px solid; */
+    .aside {
+        min-height: 100vh;
+        
     }
-  
+
 }
 
 
-@media (max-width:787px) {
+@media (max-width:855px) {
 
-    .aside{
-        /* position: fixed; */
-        width: 100%;
-    }
+    
 
-  
+
     .filterIcon {
         display: block;
     }
 
-    .checkboxes{
+    .checkboxes {
         height: 150px;
         overflow-y: scroll;
-        
+
+    }
+}
+
+
+
+@media (max-width:767px){
+.aside {
+
+        width: 100%;
     }
 }

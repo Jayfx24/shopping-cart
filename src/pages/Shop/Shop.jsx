@@ -169,10 +169,12 @@ export default function Shop() {
           }
         </div>
         <div className={styles.bonus}>
-          <h2>40%</h2>
-          <p>Fashion Sales</p>
-          <Link to="/products">Shop Now</Link>
-        </div>
+          <div className="">
+            <h2>40%</h2>
+            <p>Fashion Sales</p>
+            <Link to="/products">Shop Now</Link>
+                    </div>
+          </div>
       </div>
     </section>
   );

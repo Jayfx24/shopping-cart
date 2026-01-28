@@ -26,7 +26,7 @@ export default function ProductCard({ count, product, onClick }) {
       {isAvailable && (
         <div className={'counter'}>
           <span className="count counter--product"> {count ?? 0}</span>
-          <div className={styles.btns}>
+          <div className='counter-btns'>
             <button
               id="removeItem"
               className="cart__btn"

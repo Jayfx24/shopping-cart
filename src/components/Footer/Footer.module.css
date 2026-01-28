@@ -1,8 +1,8 @@
 .footer {
     align-items: start;
-    background-color: black;
+    background-color: var(--text-clr);
     color: white;
-    /* border-radius: var(--br-xl); */
+    border-radius: var(--br-xl) var(--br-xl) 0 0;
 }
 
 .firstCol {

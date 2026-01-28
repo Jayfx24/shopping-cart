@@ -1,6 +1,8 @@
 .header {
     background-color: hsla(0, 0%, 50%, 0.15);
+    /* background-color: var(--accent-clr); */
     border-radius: var(--br-xl);
+    font-weight: 400;
 }
 
 .heading {
@@ -14,7 +16,7 @@
 }
 
 .navLink {
-    font-size: 1.15em;
+    font-size: 1em;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -59,7 +61,7 @@
     color: red;
     
     border-radius: 50px;
-    font-weight: 900;
+    font-weight: 700;
     z-index: -1;
 }
 
