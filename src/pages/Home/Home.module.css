@@ -182,8 +182,8 @@
 @media (max-width: 768px) {
     .hero {
 
-        background: linear-gradient(to top, hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.1)),
-            var(--hero-img__mobile);
+        /* background: linear-gradient(to top, hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.1)),
+            var(--hero-img__mobile); */
 
         min-height: 80vh;
         ;
