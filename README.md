@@ -1,16 +1,36 @@
-# React + Vite
+# React Shop Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple e-commerce React application that allows users to browse products, add them to a cart, and manage their cart items. The project demonstrates core React concepts including component structure, state management, props validation, and API data fetching.  
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Three main pages**:
+  - **Home Page**: Showcase images, information, or promotional content.
+  - **Shop Page**: Displays a list of products fetched from [DummyJson](https://dummyjson.com/). Each product has:
+    - Title
+    - Price
+    - Increment and decrement buttons
+    - "Add to Cart" button
+  - **Cart Page**: Shows all items added to the cart with:
+    - Quantity controls
+    - Real-time updates to cart totals
+    - Option to remove items  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Navigation Bar**:
+  - Present on all pages
+  - Displays a cart indicator showing the total number of items in the cart, updating in real time
 
-## Expanding the ESLint configuration
+- **State Management**:
+  - Real-time updates to the cart
+  - Proper handling of item quantities and removal
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Data Fetching**:
+  - Products are fetched from an external API (DummyJson API)
+
+- **Responsive Design & Styling**:
+  - Styled for presentation and usability
+  - Flexible layout for desktop and mobile
+
+
+
