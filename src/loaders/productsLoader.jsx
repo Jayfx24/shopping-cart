@@ -14,7 +14,7 @@ export default async function productsLoader() {
     products = response.products ?? data.products;
     console.log(response, products);
     shuffledProducts = shuffle(products);
-    Object.values(shuffledProducts).forEach((item) => {
+    Object.values(products).forEach((item) => {
       const product = item;
       const isMen = product.category.startsWith("men");
       const isWomen = product.category.startsWith("women");
