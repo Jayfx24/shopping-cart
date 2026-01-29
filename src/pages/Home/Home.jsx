@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useOutletContext, useLoaderData } from "react-router";
+import { useState } from "react";
+import { useOutletContext } from "react-router";
 import styles from "./Home.module.css";
 import ProductList from "../../components/ProductList/ProductList";
 import ProductCard from "../../components/ProductCard/ProductCard";
@@ -7,8 +7,6 @@ import homeProductSort from "../../utils";
 import Button from "../../components/ui/Button";
 import urbanCImg from "../../assets/images/Urban Contemplation.webp";
 import urbanGImg from "../../assets/images/Urban Group Portrait.webp";
-import urbanYImg from "../../assets/images/Stylish Person in Yellow Coat.webp";
-import urbanPImg from "../../assets/images/Urban Portrait with Vibrant Lights.webp";
 
 export default function Home() {
   const { sortedProducts, handleCartClick, cart } = useOutletContext();
@@ -41,7 +39,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.content + " container row-col"}>
           <div className={styles.texts}>
-            <h1 className={styles.title}>Elevate Your Style, Every Day</h1>
+            <h1 className={styles.title}>Elevate Your <span>Style,</span> Every Day</h1>
             <div className={styles.subTitle}>
               <p>DISCOVER THE LATEST TREND IN FASHION</p>
               <p>EXCLUSIVE DEALS AVAILABLE FOR A LIMITED TIME</p>

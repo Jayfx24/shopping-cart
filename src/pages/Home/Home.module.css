@@ -8,20 +8,21 @@
 
     background: linear-gradient(to top, hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.1)),
         var(--hero-img__desktop);
-    /* url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')  center / cover no-repeat; */
-    
     min-height: 670px;
-    /* min-height: 75vh; */
-    border-radius: var(--br-xl);
+        border-radius: var(--br-xl);
+    font-family: "Rubik", sans-serif;
+
 
 }
+
+
 
 
 .content {
     /* width: 100%; */
     height: 100%;
     padding-block: 3rem;
-    font-family: 'Poppins', sans-serif;
+    
 
 
 }
@@ -33,6 +34,9 @@
     height: 100%;
     text-transform: uppercase;
     color: white;
+    font-family: "Rubik", sans-serif;
+
+
 
 }
 
@@ -40,19 +44,38 @@
     font-size: var(--f-4);
     line-height: 1.25;
     font-weight: 300;
-    max-width: 20ch;
-    /* font-family: 'Poppins'; */
+    max-width: 15ch;
+
+    /* font-weight:600 ; */
+    /* text-transform: capitalize; */
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -2px;
+
+    font-optical-sizing: auto;
+
+
+}
+
+.title span {
+    color: var(--accent-clr);
+    font-weight: 600;
+
 
 }
 
 .subTitle {
     margin-top: auto;
 
+    font-weight: 400;
+
+
+
 }
 
-.carousel {
+/* .carousel {
     width: 25%;
-}
+} */
 
 .showcase {
     margin-top: -2rem;
@@ -73,14 +96,18 @@
     padding-block: 2em;
     text-transform: uppercase;
     text-align: center;
+    gap: 1.2em;
+    font-family: "Rubik", sans-serif;
+
 }
 
 .scTitle {
     font-size: var(--f-sect);
     line-height: 1.2;
-    max-width: 22ch;
+    max-width: 20ch;
     margin-inline: auto;
-    font-family: 'Poppins';
+    font-family: "Rubik", sans-serif;
+
 
 
 }
@@ -96,7 +123,8 @@
     column-gap: 1em;
     color: white;
 
-    
+
+
 }
 
 .colImg {
@@ -126,7 +154,7 @@
 
 .colTitle {
     font-size: var(--f-sect);
-    
+
 
 }
 
@@ -148,11 +176,15 @@
 
 .infoText {
     /* padding-block-end: 2rem; */
+    margin-block: 2em;
+
 
 
     & h2 {
         font-size: var(--f-sect);
         max-width: 25ch;
+        line-height: 1;
+
 
     }
 

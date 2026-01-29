@@ -12,6 +12,8 @@ const Button = styled.button`
   background-color: hsla(0, 0%, 50%, 0.15);
   border-color: hsla(0, 0%, 50%, 0.15);
   color: var(--text-clr);
+  font-family: "Rubik", sans-serif;
+
 
   &: hover {
     background: var(--primary-clr);

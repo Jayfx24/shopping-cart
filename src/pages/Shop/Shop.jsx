@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useOutletContext, Outlet, Link } from "react-router";
 import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
 import styles from "./Shop.module.css";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
-
+import { shuffle } from "../../utils";
 export default function Shop() {
   const { sortedProducts, unsortedProducts, handleCartClick, cart } =
     useOutletContext();
@@ -12,11 +12,14 @@ export default function Shop() {
   const [checkedStatus, setCheckedStatus] = useState({});
   const allSelectedItems = Object.values(selectedCategory).flat();
   const [isFilter, setIsFilter] = useState(false);
+  // const [shuffledProducts, setshuffledProducts] = useState([]);
 
   const productsToRender =
     Object.keys(selectedCategory).length > 0
       ? allSelectedItems
       : unsortedProducts;
+
+
 
   function handleChange(e, category, subCategory = null) {
     const target = e.target;

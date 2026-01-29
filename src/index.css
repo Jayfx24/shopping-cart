@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  --f-clr: red;
+  /* --f-clr: red; */
   --f-4: clamp(2rem, 1.292rem + 3.5398vw, 4.5rem);
   --f-sect: clamp(1.75rem, 1.5376rem + 1.0619vw, 2.5rem);
   --f-1_5: clamp(1.25rem, 1.1792rem + 0.354vw, 1.5rem);
@@ -13,7 +13,7 @@
   --br-s: .25em;
 
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:"Rubik", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -34,10 +34,7 @@
 
 body {
   font-size: 1rem;
-  /* background-color: #D9D9D9; */
   color: var(--text-clr);
-  /* font-family: 'Outfit'; */
-  font-family: 'Poppins';
 
 }
 

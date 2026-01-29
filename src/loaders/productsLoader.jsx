@@ -38,7 +38,7 @@ export default async function productsLoader() {
     console.log(err);
   }
 
-
+  console.log(products)
   return {
     sortedProducts: {
       men: menObj,
