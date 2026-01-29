@@ -11,13 +11,12 @@ export default function Shop() {
     useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
-  const allSelectedItems = (Object.values(selectedCategory).flat());
+  const allSelectedItems = Object.values(selectedCategory).flat();
   const [isFilter, setIsFilter] = useState(false);
-  
-  
+
   const productsToRender =
     Object.keys(selectedCategory).length > 0
-      ? shuffle(allSelectedItems)
+      ? allSelectedItems
       : unsortedProducts;
 
   function handleChange(e, category, subCategory = null) {
@@ -75,7 +74,6 @@ export default function Shop() {
     }
 
     setSelectedCategory(newSelected);
-    
   }
 
   return (
@@ -84,12 +82,15 @@ export default function Shop() {
         <div className={styles.categories}>
           <div className="row btw">
             <h2>Filter</h2>
-  
           </div>
 
           {Object.entries(sortedProducts).map(([category, values]) => {
             return (
-              <details key={category} name="category" className={styles.category}>
+              <details
+                key={category}
+                name="category"
+                className={styles.category}
+              >
                 <summary className="row btw">
                   {category}
                   <ChevronDown className="d-icon" />
@@ -107,13 +108,15 @@ export default function Shop() {
                   <ul key={`all-${category}`} className={styles.filterSub}>
                     {Object.entries(values).map(([subCategory, _]) => {
                       const isSelected = checkedStatus[subCategory] ?? false;
-                      const cleanSubeCategory = subCategory.replace(/-/g," ") 
+                      const cleanSubeCategory = subCategory.replace(/-/g, " ");
                       return (
                         <Checkbox
                           key={`${subCategory}`}
                           label={cleanSubeCategory}
                           id={subCategory}
-                          onChange={(e) => handleChange(e, category, subCategory)}
+                          onChange={(e) =>
+                            handleChange(e, category, subCategory)
+                          }
                           isChecked={isSelected}
                         />
                       );
@@ -124,29 +127,38 @@ export default function Shop() {
             );
           })}
         </div>
-        
+
         <div className={`${styles.shipping} hide-m`}>
           <h2>Shipping & Delivery</h2>
 
           <div className={styles.info}>
             <div className="s-i">
-              <Van size={42}/>
+              <Van size={42} />
               <div className="s-t">
-                <p className="s-title"> <strong>Free Shipping</strong> </p>
+                <p className="s-title">
+                  {" "}
+                  <strong>Free Shipping</strong>{" "}
+                </p>
                 <p className="s-sub">Free Shipping WorldWide for Our clients</p>
               </div>
             </div>
             <div className="s-i">
               <Headset size={42} />
               <div className="s-t">
-                <p className="s-title"> <strong>Support 24/7</strong> </p>
+                <p className="s-title">
+                  {" "}
+                  <strong>Support 24/7</strong>{" "}
+                </p>
                 <p className="s-sub">Round the clock support</p>
               </div>
             </div>
             <div className="s-i">
               <RefreshCw size={42} />
               <div className="s-t">
-                <p className="s-title"> <strong>30 days Return </strong></p>
+                <p className="s-title">
+                  {" "}
+                  <strong>30 days Return </strong>
+                </p>
                 <p className="s-sub"> Easy 30 days return for Our clients</p>
               </div>
             </div>
@@ -156,8 +168,7 @@ export default function Shop() {
 
       <div className={styles.content}>
         <div id="products" className={styles.products}>
-          
-            <h2>Products</h2>
+          <h2>Products</h2>
           {
             <Outlet
               context={[
@@ -165,7 +176,7 @@ export default function Shop() {
                 isFilter,
                 setIsFilter,
                 handleCartClick,
-                cart
+                cart,
               ]}
             />
           }
@@ -175,8 +186,8 @@ export default function Shop() {
             <h2>40%</h2>
             <p>Fashion Sales</p>
             <Link to="/products">Shop Now</Link>
-                    </div>
           </div>
+        </div>
       </div>
     </section>
   );
