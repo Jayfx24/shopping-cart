@@ -1,15 +1,20 @@
-
-import fetchAllProducts from "../services/api"
+import fetchAllProducts from "../services/api";
 import data from "../test.json";
+import { shuffle } from "../utils";
 
 export default async function productsLoader() {
   const obj = {};
   const menObj = {};
   const womenObj = {};
+  const url = "https://dummyjson.com/products?limit=0";
+  let products = null;
+  let shuffledProducts = null;
   try {
-    // const response = await fetchAllProducts(url);
-
-    Object.values(data.products).forEach((item) => {
+    const response = await fetchAllProducts(url);
+    products = response.products ?? data.products;
+    console.log(response, products);
+    shuffledProducts = shuffle(products);
+    Object.values(shuffledProducts).forEach((item) => {
       const product = item;
       const isMen = product.category.startsWith("men");
       const isWomen = product.category.startsWith("women");
@@ -32,7 +37,7 @@ export default async function productsLoader() {
   } catch (err) {
     console.log(err);
   }
-  console.log(obj)
+
 
   return {
     sortedProducts: {
@@ -40,6 +45,6 @@ export default async function productsLoader() {
       women: womenObj,
       others: obj,
     },
-    unsortedProducts: data.products,
+    unsortedProducts: shuffledProducts,
   };
 }

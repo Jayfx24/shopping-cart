@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useOutletContext, useLoaderData } from "react-router";
 import styles from "./Home.module.css";
 import ProductList from "../../components/ProductList/ProductList";
@@ -15,12 +15,12 @@ export default function Home() {
   const sorted = homeProductSort(sortedProducts);
   const [category, setCategory] = useState("wears");
   const [data, setData] = useState(sorted[category]);
-
+  const catalog = ["wears", "men", "women", "home"];
   const handleClick = (type) => {
     setCategory(type);
     setData(sorted[type]);
   };
-
+ 
   const currentList = Object.values(data.products)
     .splice(0, 8)
     ?.map((item) => {
@@ -56,32 +56,32 @@ export default function Home() {
           <ul className={styles.nav + " " + "row-col"}>
             <li>
               <Button
-                className={category === "wears" ? "active-cat" : ""}
-                onClick={() => handleClick("wears")}
+                className={category === catalog[0] ? "active-cat" : ""}
+                onClick={() => handleClick(catalog[0])}
               >
                 Ready to Wear
               </Button>
             </li>
             <li>
               <Button
-                className={category === "men" ? "active-cat" : ""}
-                onClick={() => handleClick("men")}
+                className={category === catalog[1] ? "active-cat" : ""}
+                onClick={() => handleClick(catalog[1])}
               >
                 Men's Essential
               </Button>
             </li>
             <li>
               <Button
-                className={category === "women" ? "active-cat" : ""}
-                onClick={() => handleClick("women")}
+                className={category === catalog[2] ? "active-cat" : ""}
+                onClick={() => handleClick(catalog[2])}
               >
                 Women's Essentials
               </Button>
             </li>
             <li>
               <Button
-                className={category === "home" ? "active-cat" : ""}
-                onClick={() => handleClick("home")}
+                className={category === catalog[3] ? "active-cat" : ""}
+                onClick={() => handleClick(catalog[3])}
               >
                 Home Essentials
               </Button>
@@ -133,7 +133,6 @@ export default function Home() {
 
         <div className={styles.full}>
           <img src={urbanGImg} alt="" className={styles.fullImg} />
-          
         </div>
       </section>
     </div>

@@ -1,4 +1,5 @@
 export default function homeProductSort(data) {
+
   const wears = [
     ...data.men["mens-shirts"],
     data.women["womens-dresses"],
@@ -30,7 +31,7 @@ export default function homeProductSort(data) {
   };
 }
 
-const shuffle = (array) => {
+export const shuffle = (array) => {
   const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
     const a = Math.floor(Math.random() * (i + 1));

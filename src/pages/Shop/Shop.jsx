@@ -4,18 +4,20 @@ import { Van, Headset, RefreshCw } from "lucide-react";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
 import styles from "./Shop.module.css";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
+import { shuffle } from "../../utils";
 
 export default function Shop() {
   const { sortedProducts, unsortedProducts, handleCartClick, cart } =
     useOutletContext();
   const [selectedCategory, setSelectedCategory] = useState({});
   const [checkedStatus, setCheckedStatus] = useState({});
-  const allSelectedItems = Object.values(selectedCategory).flat();
+  const allSelectedItems = (Object.values(selectedCategory).flat());
   const [isFilter, setIsFilter] = useState(false);
-
+  
+  
   const productsToRender =
     Object.keys(selectedCategory).length > 0
-      ? allSelectedItems
+      ? shuffle(allSelectedItems)
       : unsortedProducts;
 
   function handleChange(e, category, subCategory = null) {

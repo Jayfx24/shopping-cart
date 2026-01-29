@@ -18,7 +18,6 @@ export default function Products() {
   const currentPage = Number(page ?? 1);
   const dataLimit = 12;
   const totalPages = Math.ceil(products.length / dataLimit);
-  console.log(currentPage);
 
   useEffect(() => {
     if (isFilter) {

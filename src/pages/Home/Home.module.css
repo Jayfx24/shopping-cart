@@ -9,8 +9,9 @@
     background: linear-gradient(to top, hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.1)),
         var(--hero-img__desktop);
     /* url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')  center / cover no-repeat; */
-    /* height: 80vh; */
-    min-height: 650px;
+    
+    min-height: 670px;
+    /* min-height: 75vh; */
     border-radius: var(--br-xl);
 
 }
